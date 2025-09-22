@@ -1,0 +1,232 @@
+/* === Reset y estructura base === */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #004e92, #000428);
+    color: #ffffff;
+}
+
+/* === Header === */
+.header {
+    background-color: #003366;
+    text-align: center;
+    padding: 10px;
+}
+
+.header__title {
+    font-size: 1.8em;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* === Navegación principal === */
+.nav {
+    background-color: #003366;
+    position: relative;
+    z-index: 1001;
+}
+
+.nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    opacity: 0.95;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav__link:hover {
+    background-color: #005599;
+    color: #ffcc00;
+}
+
+/* === Dropdown === */
+.nav__item--has-dropdown .nav__dropdown {
+    display: none;
+    position: absolute;
+    background-color: #005599;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.nav__dropdown-item {
+    width: 100%;
+}
+
+.nav__dropdown-link {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav__dropdown-link:hover {
+    background-color: #0077cc;
+    color: #ffcc00;
+}
+
+.nav__dropdown.show {
+    display: block;
+}
+
+.nav__item--has-dropdown:hover .nav__dropdown {
+    display: block;
+}
+
+/* === Main content === */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+/* === Info box === */
+.info-box {
+    background-color: #ffffff;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    color: #333333;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+.info-box__figure {
+    margin: 0;
+    position: relative;
+}
+
+.info-box__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #003366;
+}
+
+.info-box__caption {
+    background-color: #003366;
+    color: #ffffff;
+    font-size: 0.85em;
+    text-align: center;
+    padding: 8px;
+}
+
+.info-box__content {
+    padding: 20px;
+}
+
+.info-box__title {
+    color: #003366;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.info-box__text {
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* === Footer === */
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Logo institucional */
+.footer__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__figure {
+    text-align: center;
+    max-width: 95px;
+}
+
+.footer__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transform: scale(0.9);
+}
+
+.footer__caption {
+    margin-top: 1px;
+    font-size: 0.9em;
+    color: #ffcc00;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Contacto */
+.footer__contact {
+    font-size: 0.95em;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.footer__text {
+    margin: 5px 0;
+}
+
+.footer__link {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}

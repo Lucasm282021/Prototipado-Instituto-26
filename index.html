@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ISFDyT N°26 - Instituto Superior en Dolores</title>
+    <meta name="description" content="Instituto Superior de Formación Docente y Técnica N°26. Carreras, clases virtuales y comunidad educativa en Dolores, Buenos Aires.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="body">
+    <!-- Encabezado -->
+    <header class="header">
+        <h1 class="header__title">INSTITUTO SUPERIOR DE FORMACIÓN DOCENTE Y TÉCNICA N° 26</h1>
+    </header>
+
+    <!-- Navegación principal -->
+    <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="index.html">Inicio</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Institucional</a></li>
+        <li class="nav__item nav__item--has-dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
+            <a class="nav__link" href="#">Educativo</a>
+            <ul class="nav__dropdown" role="menu">
+            <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="#">Carreras</a></li>
+            <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="#">Oferta Académica</a></li>
+            <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="#">Inscripción</a></li>
+            <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="#">Clases Virtuales</a></li>
+            </ul>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="#">Comunidad Educativa</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Multimedia</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+
+        <!-- Bloque: Ofertas Académicas -->
+        <section class="info-box" aria-labelledby="academicas__title">
+        <figure class="info-box__figure">
+            <picture>
+            <source srcset="images/campus.webp" type="image/webp">
+            <img class="info-box__image" src="images/campus.jpg" alt="Imagen del campus del instituto" loading="lazy">
+            </picture>
+            <figcaption class="info-box__caption">Campus del Instituto</figcaption>
+        </figure>
+        <article class="info-box__content">
+            <h2 class="info-box__title" id="academicas__title">Ofertas Académicas</h2>
+            <p class="info-box__text">Explore nuestras carreras y programas certificados. Construya su futuro profesional con nosotros.</p>
+        </article>
+        </section>
+
+        <!-- Bloque: Clases Virtuales -->
+        <section class="info-box" aria-labelledby="virtuales__title">
+        <figure class="info-box__figure">
+            <picture>
+            <source srcset="images/virtual-classes.webp" type="image/webp">
+            <img class="info-box__image" src="images/virtual-classes.jpg" alt="Imagen representativa de clases virtuales" loading="lazy">
+            </picture>
+            <figcaption class="info-box__caption">Acceso a clases virtuales</figcaption>
+        </figure>
+        <article class="info-box__content">
+            <h2 class="info-box__title" id="virtuales__title">Enlaces a Clases Virtuales</h2>
+            <p class="info-box__text">Acceso rápido a las plataformas educativas digitales para una educación sin barreras.</p>
+        </article>
+        </section>
+
+        <!-- Bloque: Galería -->
+        <section class="info-box" aria-labelledby="galeria__title">
+        <figure class="info-box__figure">
+            <picture>
+            <source srcset="images/gallery.webp" type="image/webp">
+            <img class="info-box__image" src="images/gallery.jpg" alt="Imagen de la galería del instituto" loading="lazy">
+            </picture>
+            <figcaption class="info-box__caption">Galería institucional</figcaption>
+        </figure>
+        <article class="info-box__content">
+            <h2 class="info-box__title" id="galeria__title">Galería de Imágenes</h2>
+            <p class="info-box__text">Visite nuestra galería para ver momentos destacados y celebraciones académicas.</p>
+        </article>
+        </section>
+
+    </main>
+
+    <!-- Pie institucional -->
+    <footer class="footer" aria-label="Información institucional">
+    <div class="footer__content">
+        <div class="footer__logo">
+            <figure class="footer__figure">
+                <img class="footer__image" src="images/logo26.png" alt="Logo del Instituto" loading="lazy">
+                <figcaption class="footer__caption">ISFDyT N°26</figcaption>
+            </figure>
+        </div>
+        <div class="footer__contact">
+            <p class="footer__text"><strong>Horarios de atención:</strong> 18:20 a 22:20 hs</p>
+            <p class="footer__text"><strong>Dirección:</strong> Marquez 51, Dolores</p>
+            <div class="footer__icon-link">
+                <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffcc00" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z"/>
+                </svg>
+                <a class="footer__link" href="mailto:consultasinstituto26@gmail.com">consultasinstituto26@gmail.com</a>
+            </div>
+            <div class="footer__icon-link">
+                <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffcc00" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 17 22 12z"/>
+                </svg>
+                <a class="footer__link" href="https://www.facebook.com/isfdyt.dolores" target="_blank" rel="noopener">/isfdyt.dolores</a>
+            </div>
+            <div class="footer__icon-link">
+                <svg class="footer__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffcc00" viewBox="0 0 24 24">
+                    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/>
+                </svg>
+                <a class="footer__link" href="https://www.instagram.com/isfdytdolores" target="_blank" rel="noopener">@isfdyt.dolores</a>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
