@@ -16,8 +16,8 @@
     <!-- Navegación principal -->
     <nav class="nav" aria-label="Navegación principal">
         <ul class="nav__list">
-        <li class="nav__item"><a class="nav__link" href="index.html">Inicio</a></li>
-        <li class="nav__item"><a class="nav__link" href="#">Institucional</a></li>
+        <li class="nav__item"><a class="nav__link" href="/pages/home.html">Inicio</a></li>
+        <li class="nav__item"><a class="nav__link" href="/pages/institucional.html">Institucional</a></li>
         <li class="nav__item nav__item--has-dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
             <a class="nav__link" href="#">Educativo</a>
             <ul class="nav__dropdown" role="menu">
@@ -33,53 +33,50 @@
     </nav>
 
     <!-- Contenido principal -->
-    <main class="main-content">
-
+    <main class="main-content" id="main-content">
+    <!-- Aquí se cargará el contenido dinámico -->
         <!-- Bloque: Ofertas Académicas -->
         <section class="info-box" aria-labelledby="academicas__title">
-        <figure class="info-box__figure">
-            <picture>
-            <source srcset="images/campus.webp" type="image/webp">
-            <img class="info-box__image" src="images/campus.jpg" alt="Imagen del campus del instituto" loading="lazy">
-            </picture>
-            <figcaption class="info-box__caption">Campus del Instituto</figcaption>
-        </figure>
-        <article class="info-box__content">
-            <h2 class="info-box__title" id="academicas__title">Ofertas Académicas</h2>
-            <p class="info-box__text">Explore nuestras carreras y programas certificados. Construya su futuro profesional con nosotros.</p>
-        </article>
+            <figure class="info-box__figure">
+                <picture>
+                <source srcset="images/campus.webp" type="image/webp">
+                <img class="info-box__image" src="images/campus.jpg" alt="Imagen del campus del instituto" loading="lazy">
+                </picture>
+                <figcaption class="info-box__caption">Campus del Instituto</figcaption>
+            </figure>
+            <article class="info-box__content">
+                <h2 class="info-box__title" id="academicas__title">Ofertas Académicas</h2>
+                <p class="info-box__text">Explore nuestras carreras y programas certificados. Construya su futuro profesional con nosotros.</p>
+            </article>
+            </section>
+            <!-- Bloque: Clases Virtuales -->
+            <section class="info-box" aria-labelledby="virtuales__title">
+            <figure class="info-box__figure">
+                <picture>
+                <source srcset="images/virtual-classes.webp" type="image/webp">
+                <img class="info-box__image" src="images/virtual-classes.jpg" alt="Imagen representativa de clases virtuales" loading="lazy">
+                </picture>
+                <figcaption class="info-box__caption">Acceso a clases virtuales</figcaption>
+            </figure>
+            <article class="info-box__content">
+                <h2 class="info-box__title" id="virtuales__title">Enlaces a Clases Virtuales</h2>
+                <p class="info-box__text">Acceso rápido a las plataformas educativas digitales para una educación sin barreras.</p>
+            </article>
+            </section>
+            <!-- Bloque: Galería -->
+            <section class="info-box" aria-labelledby="galeria__title">
+            <figure class="info-box__figure">
+                <picture>
+                <source srcset="images/gallery.webp" type="image/webp">
+                <img class="info-box__image" src="images/gallery.jpg" alt="Imagen de la galería del instituto" loading="lazy">
+                </picture>
+                <figcaption class="info-box__caption">Galería institucional</figcaption>
+            </figure>
+            <article class="info-box__content">
+                <h2 class="info-box__title" id="galeria__title">Galería de Imágenes</h2>
+                <p class="info-box__text">Visite nuestra galería para ver momentos destacados y celebraciones académicas.</p>
+            </article>
         </section>
-
-        <!-- Bloque: Clases Virtuales -->
-        <section class="info-box" aria-labelledby="virtuales__title">
-        <figure class="info-box__figure">
-            <picture>
-            <source srcset="images/virtual-classes.webp" type="image/webp">
-            <img class="info-box__image" src="images/virtual-classes.jpg" alt="Imagen representativa de clases virtuales" loading="lazy">
-            </picture>
-            <figcaption class="info-box__caption">Acceso a clases virtuales</figcaption>
-        </figure>
-        <article class="info-box__content">
-            <h2 class="info-box__title" id="virtuales__title">Enlaces a Clases Virtuales</h2>
-            <p class="info-box__text">Acceso rápido a las plataformas educativas digitales para una educación sin barreras.</p>
-        </article>
-        </section>
-
-        <!-- Bloque: Galería -->
-        <section class="info-box" aria-labelledby="galeria__title">
-        <figure class="info-box__figure">
-            <picture>
-            <source srcset="images/gallery.webp" type="image/webp">
-            <img class="info-box__image" src="images/gallery.jpg" alt="Imagen de la galería del instituto" loading="lazy">
-            </picture>
-            <figcaption class="info-box__caption">Galería institucional</figcaption>
-        </figure>
-        <article class="info-box__content">
-            <h2 class="info-box__title" id="galeria__title">Galería de Imágenes</h2>
-            <p class="info-box__text">Visite nuestra galería para ver momentos destacados y celebraciones académicas.</p>
-        </article>
-        </section>
-
     </main>
 
     <!-- Pie institucional -->
@@ -115,7 +112,6 @@
         </div>
     </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
