@@ -1,6 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.getElementById("main-content");
 
+  // ✅ Cargar contenido inicial por defecto
+  fetch("/pages/inicio.html")
+    .then(response => response.text())
+    .then(html => {
+      main.innerHTML = html;
+      if (main.firstElementChild) {
+        main.firstElementChild.classList.add("fade-in");
+      }
+    })
+    .catch(error => {
+      main.innerHTML = "<p>Error al cargar la página de inicio.</p>";
+      console.error("Error al cargar /pages/inicio.html:", error);
+    });
+    
   // 🔽 Activar comportamiento desplegable en ítems con dropdown
   const dropdownTriggers = document.querySelectorAll(".nav__item--has-dropdown > .nav__link");
 

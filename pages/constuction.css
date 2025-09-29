@@ -1,0 +1,60 @@
+:root {
+  /* Paleta institucional */
+    --color-primario: #003366;
+    --color-secundario: #ffcc00;
+    --color-fondo: #f4f4f4;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+
+  /* Tipografía */
+    --font-base: 'Segoe UI', sans-serif;
+    --font-acento: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  /* Espaciado */
+    --espaciado-xl: 60px;
+    --espaciado-l: 30px;
+    --espaciado-m: 20px;
+    --espaciado-s: 10px;
+
+  /* Bordes y sombras */
+    --borde-radio: 10px;
+    --sombra-suave: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.under-construction {
+    width: 100%;
+    padding: var(--espaciado-xl) var(--espaciado-m);
+    background-color: var(--color-secundario);
+    text-align: center;
+    box-sizing: border-box;
+    border-top: 4px solid var(--color-primario);
+    color: var(--color-texto);
+    font-family: var(--font-base);
+}
+
+.under-construction__container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-blanco);
+    padding: var(--espaciado-l);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-suave);
+}
+
+.under-construction__title {
+    font-size: 2em;
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado-m);
+    font-family: var(--font-acento);
+}
+
+.under-construction__text {
+    font-size: 1em;
+    color: var(--color-texto);
+    margin-bottom: var(--espaciado-l);
+    line-height: 1.6;
+}
+
+.under-construction__icon {
+    font-size: 3em;
+    color: var(--color-primario);
+}

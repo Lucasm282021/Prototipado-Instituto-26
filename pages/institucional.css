@@ -1,6 +1,4 @@
-
-
-/* === Sección institucional con detalles === */
+/* === Bloque principal: institucional-detalles === */
 .institucional-detalles {
   width: 100%;
   background-color: #ffffff;
@@ -16,17 +14,19 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* === Bloques de detalle === */
-.detalles-item {
+.institucional-detalles__item {
   margin-bottom: 20px;
+}
+
+/* === Bloque secundario: detalles === */
+.detalles {
   border: 2px solid #003366;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* === Encabezado interactivo === */
-.detalles-trigger {
+.detalles__trigger {
   background-color: #003366;
   color: #ffffff;
   font-size: 1.1em;
@@ -36,39 +36,50 @@
   transition: background-color 0.3s ease;
 }
 
-.detalles-trigger:hover,
-.detalles-trigger:focus {
+.detalles__trigger:hover,
+.detalles__trigger:focus {
   background-color: #005599;
   outline: 2px solid #ffcc00;
 }
 
-/* === Panel desplegable === */
-.detalles-panel {
+.detalles__panel {
   padding: 20px;
   background-color: #f9f9f9;
   border-top: 2px solid #003366;
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.detalles-panel img {
-  width: 100%;
+.detalles__image {
+  width: 120px;
   height: auto;
   margin-bottom: 15px;
   border-radius: 4px;
   display: block;
 }
 
-.detalles-panel p {
+.detalles__text {
   font-size: 0.95em;
   color: #333333;
   line-height: 1.6;
   margin: 0;
 }
 
-/* === Animación suave === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* === Imagen específica de carrera (si aplica en otro contexto) === */
+.carrera-img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
-
+/* === Animación suave === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

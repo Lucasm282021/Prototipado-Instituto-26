@@ -1,0 +1,85 @@
+:root {
+  /* Paleta institucional */
+    --color-primario: #003366;
+    --color-secundario: #ffcc00;
+    --color-fondo: #f4f4f4;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+
+  /* Tipografía */
+    --font-base: 'Segoe UI', sans-serif;
+    --font-acento: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  /* Espaciado */
+    --espaciado-xl: 60px;
+    --espaciado-l: 30px;
+    --espaciado-m: 20px;
+    --espaciado-s: 10px;
+
+  /* Bordes y sombras */
+    --borde-radio: 10px;
+    --sombra-suave: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Bloque Principoal === */
+.main-banner {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--espaciado-l);
+}
+/* === Bloque: info-box === */
+.info-box {
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-primario);
+    border-radius: var(--borde-radio);
+    width: 320px;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    color: var(--color-texto);
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+.info-box__figure {
+    margin: 0;
+    position: relative;
+}
+
+.info-box__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid var(--color-primario);
+}
+
+.info-box__caption {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-size: 0.85em;
+    text-align: center;
+    padding: var(--espaciado-s);
+    font-style: italic;
+}
+
+.info-box__content {
+    padding: var(--espaciado-m);
+    font-family: var(--font-base);
+}
+
+.info-box__title {
+    color: var(--color-primario);
+    font-size: 1.3em;
+    margin-bottom: var(--espaciado-s);
+    font-weight: bold;
+}
+
+.info-box__text {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0;
+}

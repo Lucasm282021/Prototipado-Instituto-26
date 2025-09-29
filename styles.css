@@ -1,7 +1,7 @@
 /* === Reset y estructura base === */
 /* === Corrección avanzada para evitar salto de ancho por scroll === */
 html {
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 html, body {
@@ -122,61 +122,10 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 60px 20px;
-    background-color: #f4f4f4;
-    margin-top: 70px; /* ← altura estimada de la nav */
-}
-
-/* === Info box === */
-.info-box {
-    background-color: #ffffff;
-    border: 2px solid #003366;
-    border-radius: 10px;
-    width: 320px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    color: #333333;
-}
-
-.info-box:hover {
-    transform: translateY(-5px);
-}
-
-.info-box__figure {
-    margin: 0;
-    position: relative;
-}
-
-.info-box__image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 1px solid #003366;
-}
-
-.info-box__caption {
-    background-color: #003366;
-    color: #ffffff;
-    font-size: 0.85em;
-    text-align: center;
-    padding: 8px;
-}
-
-.info-box__content {
-    padding: 20px;
-}
-
-.info-box__title {
-    color: #003366;
-    font-size: 1.3em;
-    margin-bottom: 10px;
-}
-
-.info-box__text {
-    font-size: 0.95em;
-    line-height: 1.5;
+    gap: var(--espaciado-l);
+    padding: var(--espaciado-xl) var(--espaciado-m);
+    background-color: var(--color-fondo);
+    margin-top: 70px; /* altura estimada de la nav */
 }
 
 /* === Footer === */
@@ -223,7 +172,7 @@ html, body {
 .footer__caption {
     margin-top: 1px;
     font-size: 0.9em;
-    color: #ffcc00;
+    color: #FFFFFF;
     font-weight: bold;
     letter-spacing: 0.5px;
 }
