@@ -1,0 +1,124 @@
+/* === Contenedor general de la sección de carreras === */
+.carreras-detalles {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.carreras-detalles__title {
+  text-align: center;
+  font-size: 1.8em;
+  color: #003366;
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Bloques individuales de carrera === */
+.carrera-item {
+  margin-bottom: 25px;
+  border: 2px solid #003366;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.carrera-trigger {
+  background-color: #003366;
+  color: #ffffff;
+  font-size: 1.2em;
+  padding: 18px 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.carrera-img {
+    max-width: 15rem;
+    height: auto;
+    display: block;
+    margin: 0 10px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transform: scale(0.9);
+}
+.carrera-resumen {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.carrera-img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.carrera-descripcion {
+  flex: 1;
+  min-width: 200px;
+}
+
+.carrera-descripcion h3 {
+  margin: 0 0 8px;
+  font-size: 1.2em;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.carrera-descripcion p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.carrera-trigger:hover,
+.carrera-trigger:focus {
+  background-color: #005599;
+  outline: 2px solid #ffcc00;
+}
+
+/* === Panel desplegable con contenido de la carrera === */
+.carrera-panel {
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-top: 2px solid #003366;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.carrera-panel p {
+  font-size: 1em;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.carrera-panel h4 {
+  font-size: 1.1em;
+  color: #003366;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* === Listado de materias por año === */
+.carrera-panel ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.carrera-panel li {
+  font-size: 0.95em;
+  color: #444444;
+  margin-bottom: 6px;
+}
+
+/* === Animación suave al desplegar === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

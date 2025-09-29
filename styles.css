@@ -1,4 +1,9 @@
 /* === Reset y estructura base === */
+/* === Corrección avanzada para evitar salto de ancho por scroll === */
+html {
+  overflow-y: scroll;
+}
+
 html, body {
     height: 100%;
     margin: 0;
