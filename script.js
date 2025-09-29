@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error al cargar /pages/inicio.html:", error);
     });
     
+
   // 🔽 Activar comportamiento desplegable en ítems con dropdown
   const dropdownTriggers = document.querySelectorAll(".nav__item--has-dropdown > .nav__link");
 
