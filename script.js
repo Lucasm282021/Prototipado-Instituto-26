@@ -154,4 +154,102 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // === Simulación de autenticación: alumno / profesor ===
+  const logoutButton = document.getElementById('logout-button');
+  const navAlumno = document.getElementById('nav-alumno');
+  const navProfesor = document.getElementById('nav-profesor');
+  const loginForm = document.querySelector('.modal__form');
+
+  // Credenciales simuladas (para demo). En producción no usar así.
+  const USERS = [
+    { username: 'alumno', password: 'alumno123', role: 'alumno' },
+    { username: 'profesor', password: 'profesor123', role: 'profesor' }
+  ];
+
+  function updateNavForRole(role) {
+    if (navAlumno) navAlumno.hidden = role !== 'alumno';
+    if (navProfesor) navProfesor.hidden = role !== 'profesor';
+    // Mostrar logout y ocultar login
+    if (logoutButton) {
+      logoutButton.hidden = false;
+      logoutButton.style.display = '';
+    }
+    if (loginButton) loginButton.hidden = true;
+  }
+
+  function clearNavAuth() {
+    if (navAlumno) navAlumno.hidden = true;
+    if (navProfesor) navProfesor.hidden = true;
+    if (logoutButton) logoutButton.hidden = true;
+    if (loginButton) loginButton.hidden = false;
+  }
+
+  // Restaurar sesión si existe
+  const saved = sessionStorage.getItem('isfdyt_user');
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.role) updateNavForRole(parsed.role);
+    } catch (e) {
+      sessionStorage.removeItem('isfdyt_user');
+    }
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const role = document.getElementById('role').value;
+
+      // Buscar credencial simulada
+      const user = USERS.find(u => u.username === username && u.password === password && u.role === role);
+      if (user) {
+        // Guardar sesión
+        sessionStorage.setItem('isfdyt_user', JSON.stringify({ username: user.username, role: user.role }));
+        updateNavForRole(user.role);
+        // Cerrar modal
+        if (loginModal) {
+          // usar la función closeModal si está en el scope
+          const closeEvent = new Event('closeModalRequest');
+          loginModal.dispatchEvent(closeEvent);
+          // fallback: invocar directamente if function available
+          if (typeof window.closeModal === 'function') window.closeModal();
+        }
+      } else {
+        alert('Credenciales inválidas. Para demo usa: alumno/alumno123 o profesor/profesor123 (y selecciona el tipo).');
+      }
+    });
+  }
+
+  // Manejo de cierre mediante evento personalizado (si closeModal no es accesible)
+  if (loginModal) {
+    loginModal.addEventListener('closeModalRequest', () => {
+      // Intentar simular click en el close o cerrar con la función local
+      const closeBtn = loginModal.querySelector('.modal__close');
+      if (closeBtn) closeBtn.click();
+    });
+  }
+
+  if (logoutButton) {
+    logoutButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem('isfdyt_user');
+      clearNavAuth();
+      // Volver a la página de inicio
+      if (main) {
+        fetch('/pages/inicio.html')
+          .then(res => res.text())
+          .then(html => {
+            main.innerHTML = html;
+            if (main.firstElementChild) main.firstElementChild.classList.add('fade-in');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          })
+          .catch(err => {
+            console.error('Error al cargar inicio después de logout:', err);
+          });
+      }
+    });
+  }
 });
