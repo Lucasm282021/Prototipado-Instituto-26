@@ -76,4 +76,82 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // === Modal de login: abrir, cerrar y accesibilidad ===
+  const loginButton = document.getElementById('login-button');
+  const loginModal = document.getElementById('login-modal');
+  const modalClose = document.querySelector('.modal__close');
+
+  if (loginButton && loginModal) {
+    const focusableSelectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]';
+    let lastFocused = null;
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      loginModal.removeAttribute('hidden');
+      // Allow CSS transition to apply
+      requestAnimationFrame(() => loginModal.classList.add('modal--visible'));
+      document.body.style.overflow = 'hidden'; // evitar scroll de fondo
+      // trap focus to first focusable element inside modal
+      const firstFocusable = loginModal.querySelector(focusableSelectors);
+      if (firstFocusable) firstFocusable.focus();
+      loginModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      loginModal.classList.remove('modal--visible');
+      // esperar la transición antes de ocultar
+      loginModal.addEventListener('transitionend', function handler() {
+        loginModal.setAttribute('hidden', '');
+        document.body.style.overflow = ''; // restaurar scroll
+        if (lastFocused) lastFocused.focus();
+        loginModal.removeEventListener('transitionend', handler);
+      });
+      loginModal.setAttribute('aria-hidden', 'true');
+    }
+
+    loginButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+      });
+    }
+
+    // Cerrar al hacer click fuera del contenido (overlay)
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        closeModal();
+      }
+    });
+
+    // Cerrar con ESC y trap simple de tab
+    document.addEventListener('keydown', (e) => {
+      if (loginModal.hasAttribute('hidden')) return;
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        closeModal();
+      } else if (e.key === 'Tab') {
+        // manejo simple de focus trap
+        const focusable = Array.from(loginModal.querySelectorAll(focusableSelectors)).filter(el => el.offsetParent !== null);
+        if (focusable.length === 0) {
+          e.preventDefault();
+          return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      }
+    });
+  }
 });

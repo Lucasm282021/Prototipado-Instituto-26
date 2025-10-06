@@ -36,6 +36,12 @@ html, body {
 }
 
 /* === Navegación principal === */
+.nav__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
 .nav {
     position: fixed;
     top: 60px; /* altura estimada del header */
@@ -43,9 +49,7 @@ html, body {
     width: 100%;
     background-color: #003366;
     z-index: 1001;
-
 }
-
 .nav__list {
     list-style: none;
     margin: 0;
@@ -55,11 +59,9 @@ html, body {
     font-size: 1.2em;
     opacity: 0.95;
 }
-
 .nav__item {
     position: relative;
 }
-
 .nav__link {
     display: block;
     padding: 15px 20px;
@@ -68,12 +70,10 @@ html, body {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .nav__link:hover {
     background-color: #005599;
     color: #ffcc00;
 }
-
 /* === Dropdown === */
 .nav__item--has-dropdown .nav__dropdown {
     display: none;
@@ -88,11 +88,9 @@ html, body {
     min-width: 180px;
     z-index: 1000;
 }
-
 .nav__dropdown-item {
     width: 100%;
 }
-
 .nav__dropdown-link {
     display: block;
     padding: 10px 15px;
@@ -100,19 +98,169 @@ html, body {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .nav__dropdown-link:hover {
     background-color: #0077cc;
     color: #ffcc00;
 }
-
 .nav__dropdown.show {
     display: block;
 }
-
 .nav__item--has-dropdown:hover .nav__dropdown {
     display: block;
 }
+
+.nav__button--login {
+    padding: 0.625em 1em; /* Equivale a 10px 16px si el font-size base es 16px */
+    background-color: #005599;
+    color: white;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem; /* Escalable según raíz */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 0.25em; /* Suaviza bordes sin romper proporción */
+    max-width: 15vw; /* Opcional: evita que se expanda demasiado en pantallas grandes */
+}
+
+
+.nav__button--login:hover {
+    background-color: #0077cc;
+    color: #ffcc00;
+}
+
+/* === Modal de inicio de sesión === */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.modal--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 420px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+  animation: fadeInModal 0.4s ease;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal__login--title {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modal__form label {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #003366;
+}
+
+.modal__form input {
+  width: 100%;
+  padding: 0.6em 0.75em;
+  margin-top: 0.25em;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal__form input:focus {
+  border-color: #005599;
+  box-shadow: 0 0 0 2px rgba(0, 85, 153, 0.2);
+  outline: none;
+}
+
+.modal__submit {
+  margin-top: 1.5rem;
+  padding: 0.75em 1.5em;
+  background-color: #005599;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 0.5em;
+  width: 100%;
+}
+
+.modal__submit:hover {
+  background-color: #0077cc;
+  transform: scale(1.02);
+}
+
+.modal__links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.modal__links a {
+  color: #005599;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.modal__links a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #003366;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal__close:hover {
+  color: #0077cc;
+}
+
 
 /* === Main content === */
 .main-content {
