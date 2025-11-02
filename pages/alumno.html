@@ -1,0 +1,72 @@
+<section class="student-area" aria-labelledby="student-area__title">
+  <div class="student-dashboard">
+    <!-- 🟩 Perfil institucional -->
+    <section class="student-profile" aria-labelledby="student-profile__title">
+      <h3 id="student-profile__title" class="visually-hidden">Perfil institucional</h3>
+      <div class="student-profile__identity">
+        <figure class="student-profile__photo">
+          <img src="/images/foto_perfil_alumno/foto-carnet-martin.png" alt="Foto tipo carnet de Martín Rodríguez" class="student-profile__photo-img"
+              onerror="this.onerror=null;this.src='/assets/silueta.svg';">
+          <figcaption class="student-profile__photo-caption">ID: 2023-DRW-017</figcaption>
+          <button class="student-profile__photo-upload" type="button" aria-label="Cargar foto de perfil">
+            Cargar foto de perfil
+          </button>
+        </figure>
+        <div class="student-profile__info">
+          <ul class="student-profile__info-list">
+            <li><strong>Nombre completo:</strong> Martín Rodríguez</li>
+            <li><strong>DNI:</strong> 38.456.789</li>
+            <li><strong>Legajo:</strong> 2023-DRW-017</li>
+            <li><strong>Carrera:</strong> Tecnicatura en Desarrollo Web</li>
+            <li><strong>Año actual:</strong> 2° año</li>
+            <li><strong>Correo institucional:</strong> <a href="mailto:martin.rodriguez@campus.edu.ar">martin.rodriguez@campus.edu.ar</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🟫 Datos académicos + 🟪 Materias -->
+    <section class="academic-summary" aria-labelledby="academic-summary__title">
+      <h3 id="academic-summary__title" class="visually-hidden">Resumen académico</h3>
+      <div class="academic-summary__profile">
+        <ul class="academic-summary__data" aria-label="Resumen de materias">
+          <li><strong>Materias cursadas:</strong> 12</li>
+          <li><strong>Materias aprobadas:</strong> 8</li>
+          <li><strong>Materias pendientes:</strong> 4</li>
+          <li><strong>Finales rendidos:</strong> 6</li>
+          <li><strong>Finales aprobados:</strong> 5</li>
+          <li><strong>Finales desaprobados:</strong> 1</li>
+        </ul>
+      </div>
+
+      <div class="academic-summary__subjects">
+        <h4 class="academic-summary__subjects-title">Materias pendientes</h4>
+        <ul class="academic-summary__subjects-list">
+          <li>Programación II</li>
+          <li>Diseño UX/UI</li>
+          <li>Base de Datos II</li>
+          <li>Legislación Informática</li>
+        </ul>
+
+        <h4 class="academic-summary__subjects-title">Materias correlativas</h4>
+        <ul class="academic-summary__subjects-list">
+          <li>Programación II → requiere Programación I</li>
+          <li>Base de Datos II → requiere Base de Datos I</li>
+          <li>Diseño UX/UI → requiere Diseño Web</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 🟦 Rendimiento académico -->
+    <section class="academic-performance" aria-labelledby="academic-performance__title">
+      <h3 id="academic-performance__title" class="academic-performance__title">Rendimiento Académico</h3>
+      <canvas id="performanceChart" aria-label="Gráfico de rendimiento académico" role="img"></canvas>
+    </section>
+
+  </div>
+</section>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/pages/alumno.js" defer></script>
+<link rel="stylesheet" href="/pages/alumno.css">

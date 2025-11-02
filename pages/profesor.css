@@ -1,0 +1,135 @@
+:root {
+  --color-fondo: #f4f8fb;
+  --color-panel: #ffffff;
+  --color-primario: #002b5c;
+  --color-secundario: #005fa3;
+  --color-acento: #0099e5;
+  --color-blanco: #ffffff;
+  --color-sombra: rgba(0, 0, 0, 0.05);
+  --radio-borde: 0.75rem;
+  --sombra-suave: 0 0.25rem 0.75rem var(--color-sombra);
+  --fuente-base: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  background-color: var(--color-fondo);
+  font-family: var(--fuente-base);
+  padding: 2rem;
+}
+
+/* 🟩 Identidad */
+.div1 {
+  grid-column: span 2;
+  grid-row: span 3;
+  background-color: var(--color-secundario);
+  color: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.docente-foto__img {
+  width: 100%;
+  max-width: 140px;
+  border-radius: 50%;
+  border: 2px solid var(--color-acento);
+}
+
+.docente-foto__id {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.docente-datos {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.docente-datos li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.docente-datos a {
+  color: var(--color-acento);
+  text-decoration: underline;
+}
+
+/* 🟦 Formación */
+.div2 {
+  grid-column: span 4;
+  grid-row: span 3;
+  grid-column-start: 3;
+  background-color: var(--color-panel);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-suave);
+  color: var(--color-primario);
+}
+
+.docente-titulo {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-secundario);
+}
+
+.docente-formacion__lista {
+  list-style: none;
+  padding: 0;
+}
+
+.docente-formacion__lista li {
+  margin-bottom: 0.5rem;
+}
+
+/* 🟫 Competencias */
+.div3 {
+  grid-column: span 3;
+  grid-row: span 3;
+  grid-row-start: 4;
+  background-color: var(--color-panel);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-suave);
+  color: var(--color-primario);
+}
+
+/* 🟪 Recursos */
+.div4 {
+  grid-column: span 3;
+  grid-row: span 3;
+  grid-column-start: 4;
+  grid-row-start: 4;
+  background-color: var(--color-panel);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-suave);
+  color: var(--color-primario);
+}
+
+.docente-recursos__lista {
+  list-style: disc inside;
+  padding-left: 1rem;
+}
+
+.docente-recursos__lista a {
+  color: var(--color-acento);
+  text-decoration: underline;
+}
+
+/* 📱 Responsividad */
+@media (max-width: 768px) {
+  .parent {
+    display: block;
+  }
+
+  .div1, .div2, .div3, .div4 {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,242 @@
+:root {
+  --color-fondo: #f4f8fb;
+  --color-panel: #ffffff;
+  --color-primario: #002b5c;
+  --color-secundario: #005fa3;
+  --color-acento: #0099e5;
+  --color-exito: #2e7d32;
+  --color-alerta: #c62828;
+  --color-neutral: #cccccc;
+  --color-texto: #1a1a1a;
+  --color-blanco: #ffffff;
+  --color-sombra: rgba(0, 0, 0, 0.05);
+  --color-rendimiento: #e6ffe6;
+  --radio-borde: 0.75rem;
+  --sombra-suave: 0 0.25rem 0.75rem var(--color-sombra);
+  --fuente-base: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* 🧭 Área general */
+.student-area {
+  width: 100%;
+  font-family: var(--fuente-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+/* 🧩 Layout principal */
+.student-dashboard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+  padding: 2rem;
+}
+
+/* 🟩 Perfil institucional */
+.student-profile {
+  grid-column: span 5 / span 5;
+  grid-row: span 2 / span 2;
+  background-color: var(--color-secundario);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  display: list-item;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  color: var(--color-blanco);
+}
+
+/* 📌 Contenedor de identidad */
+.student-profile__identity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+/* 🖼️ Foto de perfil */
+.student-profile__photo {
+  flex: 0 0 160px;
+  text-align: center;
+}
+
+.student-profile__photo-img {
+  width: 100%;
+  max-width: 170px;
+  border-radius: 50%;
+  border: 2px solid var(--color-acento);
+  box-shadow: var(--sombra-suave);
+}
+
+.student-profile__photo-caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-blanco);
+}
+
+/* 📤 Botón para subir foto */
+.student-profile__photo-upload {
+  margin-top: 0.75rem;
+  background-image: linear-gradient(to right, var(--color-acento), var(--color-secundario));
+  color: var(--color-blanco);
+  border: 1px solid var(--color-acento);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radio-borde);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: var(--sombra-suave);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.student-profile__photo-upload:hover,
+.student-profile__photo-upload:focus-visible {
+  background-image: linear-gradient(to right, var(--color-secundario), var(--color-primario));
+  border-color: var(--color-primario);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 43, 92, 0.3);
+}
+
+/* 📋 Información del alumno */
+.student-profile__info {
+  flex: 1;
+  min-width: 240px;
+}
+
+.student-profile__info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.student-profile__info-list li {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radio-borde);
+  font-size: 1rem;
+  line-height: 1.4;
+  box-shadow: var(--sombra-suave);
+  background: linear-gradient(135deg, var(--color-secundario), var(--color-acento));
+  color: var(--color-blanco);
+  position: relative;
+  overflow: hidden;
+}
+
+.student-profile__info-list li::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.student-profile__info-list strong,
+.student-profile__info-list a {
+  position: relative;
+  z-index: 1;
+}
+
+.student-profile__info-list strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--color-blanco);
+}
+
+.student-profile__info-list a {
+  color: var(--color-blanco);
+  text-decoration: underline;
+  word-break: break-word;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.student-profile__info-list a:hover {
+  color: var(--color-primario);
+  background-color: var(--color-blanco);
+  padding: 0.1rem 0.25rem;
+  border-radius: 4px;
+}
+
+/* 🟫 Datos académicos + 🟪 Materias */
+.academic-summary {
+  grid-column: span 2 / span 2;
+  grid-row: span 3 / span 3;
+  grid-row-start: 3;
+  background-color: var(--color-panel);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: var(--sombra-suave);
+  color: var(--color-texto);
+}
+
+.academic-summary__profile,
+.academic-summary__subjects {
+  width: 100%;
+}
+
+.academic-summary__data {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.academic-summary__data li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.academic-summary__subjects-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-secundario);
+}
+
+.academic-summary__subjects-list {
+  list-style: disc inside;
+  padding-left: 1rem;
+}
+
+/* 🟦 Rendimiento académico */
+.academic-performance {
+  grid-column: span 3 / span 3;
+  grid-row: span 3 / span 3;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  background-color: var(--color-rendimiento);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  box-shadow: var(--sombra-suave);
+  color: var(--color-primario);
+}
+
+.academic-performance__title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--color-secundario);
+}
+
+#performanceChart {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radio-borde);
+  background-color: var(--color-panel);
+  box-shadow: var(--sombra-suave);
+}
+
