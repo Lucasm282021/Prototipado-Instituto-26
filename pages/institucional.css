@@ -1,79 +1,88 @@
-/* === Bloque principal: institucional-detalles === */
-.institucional-detalles {
-  width: 100%;
-  background-color: #ffffff;
-  padding: 60px 20px;
-  box-sizing: border-box;
+/* === CONTENEDOR PRINCIPAL === */
+.impacto-institucional {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  font-family: "Segoe UI", "Inter", sans-serif;
+  color: #1e293b;
 }
 
-.institucional-detalles__title {
+/* === CABECERA === */
+.impacto-institucional__header {
   text-align: center;
-  font-size: 1.8em;
-  color: #003366;
-  margin-bottom: 40px;
-  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 3rem;
 }
 
-.institucional-detalles__item {
-  margin-bottom: 20px;
+.impacto-institucional__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primario, #003366);
+  margin-bottom: 0.5rem;
 }
 
-/* === Bloque secundario: detalles === */
-.detalles {
-  border: 2px solid #003366;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.detalles__trigger {
-  background-color: #003366;
-  color: #ffffff;
-  font-size: 1.1em;
-  padding: 15px 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.detalles__trigger:hover,
-.detalles__trigger:focus {
-  background-color: #005599;
-  outline: 2px solid #ffcc00;
-}
-
-.detalles__panel {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-top: 2px solid #003366;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.detalles__image {
-  width: 120px;
-  height: auto;
-  margin-bottom: 15px;
-  border-radius: 4px;
-  display: block;
-}
-
-.detalles__text {
-  font-size: 0.95em;
-  color: #333333;
+.impacto-institucional__subtitle {
+  color: #475569;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
   line-height: 1.6;
-  margin: 0;
 }
 
-/* === Imagen específica de carrera (si aplica en otro contexto) === */
-.carrera-img {
-  width: 120px;
-  height: auto;
-  border-radius: 8px;
-  flex-shrink: 0;
+/* === GRILLA DE TARJETAS === */
+.impacto-institucional__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
-/* === Animación suave === */
-@keyframes fadeIn {
+/* === TARJETA INDIVIDUAL === */
+.impacto-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.impacto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* === IMAGEN === */
+.impacto-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.impacto-card:hover .impacto-card__image {
+  transform: scale(1.05);
+}
+
+/* === CONTENIDO === */
+.impacto-card__content {
+  padding: 1.2rem 1.4rem 1.6rem;
+}
+
+.impacto-card__title {
+  color: var(--color-primario, #003366);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.impacto-card__text {
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* === ANIMACIÓN DE APARICIÓN === */
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -81,5 +90,16 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.impacto-card {
+  animation: fadeInUp 0.6s ease both;
+}
+
+/* === RESPONSIVE === */
+@media (min-width: 768px) {
+  .impacto-card__image {
+    height: 200px;
   }
 }

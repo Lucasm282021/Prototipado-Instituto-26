@@ -1,0 +1,93 @@
+/* === Ajuste de fondo para la página específica === */
+#main-content {
+    background-color: #e8f0f7;
+}
+
+/* === Contenedor principal === */
+.virtual-classes {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: var(--espaciado-l, 30px);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* === Cabecera === */
+.virtual-classes__header {
+    text-align: center;
+    margin-bottom: var(--espaciado-l, 30px);
+}
+
+.virtual-classes__title {
+    font-size: 2.2rem;
+    color: var(--color-primario, #003366);
+    font-family: var(--font-acento, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif);
+    margin: 0;
+}
+
+.virtual-classes__subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: var(--espaciado-s, 10px);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Grilla de tarjetas === */
+.virtual-classes__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espaciado-l, 30px);
+}
+
+/* === Tarjeta de plataforma === */
+.platform-card {
+    background-color: var(--color-blanco, #ffffff);
+    border-radius: var(--borde-radio, 10px);
+    box-shadow: var(--sombra-suave, 0 4px 8px rgba(0,0,0,0.1));
+    padding: var(--espaciado-m, 20px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--color-primario, #003366);
+}
+
+.platform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.platform-card__icon {
+    font-size: 3rem;
+    margin-bottom: var(--espaciado-m, 20px);
+    line-height: 1;
+}
+
+.platform-card__title {
+    font-size: 1.4rem;
+    color: var(--color-primario, #003366);
+    margin: 0 0 var(--espaciado-s, 10px);
+}
+
+.platform-card__description {
+    flex-grow: 1; /* Asegura que el botón quede al final */
+    color: var(--color-texto, #333);
+    line-height: 1.6;
+    margin-bottom: var(--espaciado-m, 20px);
+}
+
+.platform-card__button {
+    display: inline-block;
+    background-color: var(--color-primario, #003366);
+    color: var(--color-blanco, #ffffff);
+    padding: 0.75rem 1.5rem;
+    border-radius: calc(var(--borde-radio, 10px) / 2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.platform-card__button:hover {
+    background-color: var(--color-secundario, #005fa3);
+}

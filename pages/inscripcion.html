@@ -1,0 +1,69 @@
+<section class="inscripcion-form" aria-labelledby="inscripcion-form__title">
+    <header class="inscripcion-form__header">
+        <h2 id="inscripcion-form__title" class="inscripcion-form__title">Formulario de Inscripción 2026</h2>
+        <p class="inscripcion-form__subtitle">Complete los siguientes datos para iniciar su preinscripción.</p>
+    </header>
+
+    <form class="inscripcion-form__form">
+        <fieldset class="inscripcion-form__fieldset">
+            <legend class="inscripcion-form__legend">Datos Personales</legend>
+            <div class="inscripcion-form__group">
+                <label for="nombre-completo" class="inscripcion-form__label">Nombre y Apellido</label>
+                <input type="text" id="nombre-completo" name="nombre-completo" class="inscripcion-form__input" required>
+            </div>
+            <div class="inscripcion-form__group">
+                <label for="dni" class="inscripcion-form__label">DNI</label>
+                <input type="text" id="dni" name="dni" class="inscripcion-form__input" pattern="\d{7,8}" title="Ingrese un DNI válido sin puntos" required>
+            </div>
+            <div class="inscripcion-form__group">
+                <label for="fecha-nacimiento" class="inscripcion-form__label">Fecha de Nacimiento</label>
+                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="inscripcion-form__input" required>
+            </div>
+            <div class="inscripcion-form__group">
+                <label for="email" class="inscripcion-form__label">Correo Electrónico</label>
+                <input type="email" id="email" name="email" class="inscripcion-form__input" required>
+            </div>
+            <div class="inscripcion-form__group">
+                <label for="telefono" class="inscripcion-form__label">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" class="inscripcion-form__input" required>
+            </div>
+        </fieldset>
+
+        <fieldset class="inscripcion-form__fieldset">
+            <legend class="inscripcion-form__legend">Datos Académicos</legend>
+            <div class="inscripcion-form__group">
+                <label for="carrera" class="inscripcion-form__label">Carrera de Interés</label>
+                <select id="carrera" name="carrera" class="inscripcion-form__input" required>
+                    <option value="" disabled selected>Seleccione una carrera...</option>
+                    <option value="prof-primaria">Profesorado de Educación Primaria</option>
+                    <option value="tec-trabajo-social">Tecnicatura Superior en Trabajo Social</option>
+                    <option value="tec-enfermeria">Tecnicatura Superior en Enfermería</option>
+                    <option value="tec-acompanamiento">Tecnicatura Superior en Acompañamiento Terapéutico</option>
+                    <option value="tec-turismo">Tecnicatura Superior en Guía de Turismo</option>
+                    <option value="tec-gastronomia">Tecnicatura Superior en Servicios Gastronómicos</option>
+                    <option value="tec-software">Tecnicatura Superior en Desarrollo de Software</option>
+                    <option value="tec-indumentaria">Tecnicatura Superior en Diseño y Producción de Indumentaria</option>
+                    <option value="cert-enfermeria">Certificación en Enfermería en Urgencias, Emergencias y Catástrofes</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset class="inscripcion-form__fieldset inscripcion-form__fieldset--docs">
+            <legend class="inscripcion-form__legend">Documentación (Formato PDF)</legend>
+            <div class="inscripcion-form__group">
+                <label for="doc-dni" class="inscripcion-form__label inscripcion-form__label--file">Copia de DNI (frente y dorso)</label>
+                <input type="file" id="doc-dni" name="doc-dni" class="inscripcion-form__input--file" accept=".pdf" required hidden>
+                <span class="inscripcion-form__file-name">Ningún archivo seleccionado</span>
+            </div>
+            <div class="inscripcion-form__group">
+                <label for="doc-titulo" class="inscripcion-form__label inscripcion-form__label--file">Título Secundario o Constancia</label>
+                <input type="file" id="doc-titulo" name="doc-titulo" class="inscripcion-form__input--file" accept=".pdf" required hidden>
+                <span class="inscripcion-form__file-name">Ningún archivo seleccionado</span>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="inscripcion-form__submit">Enviar Preinscripción</button>
+    </form>
+</section>
+<script src="/pages/inscripcion.js" defer></script>
+<link rel="stylesheet" href="/pages/inscripcion.css">

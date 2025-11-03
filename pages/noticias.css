@@ -1,0 +1,128 @@
+/* === Ajuste de fondo para la página específica === */
+#main-content {
+    background-color: #f4f8fb;
+}
+
+/* === Contenedor principal === */
+.news-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: var(--espaciado-l, 30px);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* === Cabecera === */
+.news-section__header {
+    text-align: center;
+    margin-bottom: var(--espaciado-l, 30px);
+}
+
+.news-section__title {
+    font-size: 2.2rem;
+    color: var(--color-primario, #003366);
+    font-family: var(--font-acento, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif);
+    margin: 0;
+}
+
+.news-section__subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: var(--espaciado-s, 10px);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Grilla de tarjetas === */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--espaciado-l, 30px);
+}
+
+/* === Tarjeta de novedad === */
+.news-card {
+    background-color: var(--color-blanco, #ffffff);
+    border-radius: var(--borde-radio, 10px);
+    box-shadow: var(--sombra-suave, 0 4px 8px rgba(0,0,0,0.1));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 43, 92, 0.15);
+}
+
+.news-card__figure {
+    margin: 0;
+    height: 200px;
+}
+
+.news-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-card__content {
+    padding: var(--espaciado-m, 20px);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--espaciado-s, 10px);
+}
+
+.news-card__date {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.news-card__category {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-blanco, #ffffff);
+}
+
+.news-card__category--inscripciones { background-color: #2563eb; }
+.news-card__category--eventos { background-color: #16a34a; }
+.news-card__category--academico { background-color: #d97706; }
+
+.news-card__title {
+    font-size: 1.25rem;
+    color: var(--color-primario, #003366);
+    margin: 0 0 var(--espaciado-s, 10px);
+}
+
+.news-card__description {
+    color: var(--color-texto, #333);
+    line-height: 1.6;
+    margin-bottom: var(--espaciado-m, 20px);
+    flex-grow: 1;
+}
+
+.news-card__link {
+    display: inline-block;
+    align-self: flex-start;
+    font-weight: 600;
+    color: var(--color-primario, #003366);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.news-card__link:hover {
+    color: var(--color-secundario, #005fa3);
+}

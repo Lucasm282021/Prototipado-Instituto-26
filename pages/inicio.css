@@ -27,6 +27,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch; /* Asegura que todos los flex items tengan la misma altura */
     gap: var(--espaciado-l);
 }
 /* === Bloque: info-box === */
@@ -34,11 +35,14 @@
     background-color: var(--color-blanco);
     border: 2px solid var(--color-primario);
     border-radius: var(--borde-radio);
-    width: 320px;
+    flex-basis: 320px; /* Ancho base, permite que crezca si es necesario */
+    flex-grow: 1; /* Permite que las tarjetas crezcan para ocupar espacio */
+    max-width: 350px; /* Evita que se hagan demasiado anchas */
     box-shadow: var(--sombra-suave);
     overflow: hidden;
     transition: transform 0.3s ease;
-    color: var(--color-texto);
+    display: flex; /* Hace que la tarjeta sea un contenedor flex */
+    flex-direction: column; /* Apila los elementos hijos verticalmente */
 }
 
 .info-box:hover {
@@ -82,4 +86,12 @@
     font-size: 0.95em;
     line-height: 1.5;
     margin: 0;
+}
+
+.info-box-link {
+    text-decoration: none;
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Asegura que el enlace ocupe todo el espacio de la tarjeta */
 }

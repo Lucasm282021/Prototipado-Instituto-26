@@ -4,68 +4,104 @@
   --color-primario: #002b5c;
   --color-secundario: #005fa3;
   --color-acento: #0099e5;
-  --color-blanco: #ffffff;
   --color-sombra: rgba(0, 0, 0, 0.05);
+  --color-texto: #1a1a1a;
+  --color-blanco: #ffffff;
   --radio-borde: 0.75rem;
   --sombra-suave: 0 0.25rem 0.75rem var(--color-sombra);
   --fuente-base: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.parent {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 8px;
-  background-color: var(--color-fondo);
+/* 🧭 Área general */
+.docente-area {
+  width: 100%;
   font-family: var(--fuente-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* 🧩 Layout principal */
+.docente-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
   padding: 2rem;
 }
 
-/* 🟩 Identidad */
-.div1 {
+/* 🟩 Perfil Institucional */
+.docente-profile {
   grid-column: span 2;
-  grid-row: span 3;
   background-color: var(--color-secundario);
   color: var(--color-blanco);
   border-radius: var(--radio-borde);
   padding: 1.5rem;
   box-shadow: var(--sombra-suave);
+  margin-bottom: 1rem;
 }
 
-.docente-foto__img {
+.docente-profile__identity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.docente-profile__photo {
+  flex: 0 0 140px;
+  text-align: center;
+  margin: 0;
+}
+
+.docente-profile__photo-img {
   width: 100%;
-  max-width: 140px;
   border-radius: 50%;
   border: 2px solid var(--color-acento);
 }
 
-.docente-foto__id {
+.docente-profile__photo-caption {
   margin-top: 0.5rem;
   font-size: 0.875rem;
-  text-align: center;
 }
 
-.docente-datos {
+.docente-profile__info {
+  flex: 1;
+  min-width: 240px;
+}
+
+.docente-profile__info-list {
   list-style: none;
   padding: 0;
-  margin-top: 1rem;
+  margin: 0;
 }
 
-.docente-datos li {
+.docente-profile__info-list li {
   margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-.docente-datos a {
+.docente-profile__info-list a {
   color: var(--color-acento);
   text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
-/* 🟦 Formación */
-.div2 {
-  grid-column: span 4;
-  grid-row: span 3;
-  grid-column-start: 3;
+.docente-profile__info-list a:hover {
+  color: var(--color-blanco);
+}
+
+/* 🟦 Paneles de contenido */
+.docente-panel {
   background-color: var(--color-panel);
   border-radius: var(--radio-borde);
   padding: 1.5rem;
@@ -73,63 +109,44 @@
   color: var(--color-primario);
 }
 
-.docente-titulo {
+.docente-panel__title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
+  margin-top: 0;
+  color: var(--color-secundario);
+  border-bottom: 2px solid var(--color-acento);
+  padding-bottom: 0.5rem;
+}
+
+.docente-panel__subtitle {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
   color: var(--color-secundario);
 }
 
-.docente-formacion__lista {
+.docente-panel__list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.docente-formacion__lista li {
-  margin-bottom: 0.5rem;
-}
-
-/* 🟫 Competencias */
-.div3 {
-  grid-column: span 3;
-  grid-row: span 3;
-  grid-row-start: 4;
-  background-color: var(--color-panel);
-  border-radius: var(--radio-borde);
-  padding: 1.5rem;
-  box-shadow: var(--sombra-suave);
-  color: var(--color-primario);
-}
-
-/* 🟪 Recursos */
-.div4 {
-  grid-column: span 3;
-  grid-row: span 3;
-  grid-column-start: 4;
-  grid-row-start: 4;
-  background-color: var(--color-panel);
-  border-radius: var(--radio-borde);
-  padding: 1.5rem;
-  box-shadow: var(--sombra-suave);
-  color: var(--color-primario);
-}
-
-.docente-recursos__lista {
+.docente-panel__list--recursos {
   list-style: disc inside;
   padding-left: 1rem;
 }
 
-.docente-recursos__lista a {
+.docente-panel__list a {
   color: var(--color-acento);
   text-decoration: underline;
 }
 
 /* 📱 Responsividad */
 @media (max-width: 768px) {
-  .parent {
+  .docente-dashboard {
     display: block;
   }
-
-  .div1, .div2, .div3, .div4 {
+  .docente-panel {
     margin-bottom: 2rem;
   }
 }

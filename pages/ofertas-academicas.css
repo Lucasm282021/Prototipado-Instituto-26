@@ -1,0 +1,132 @@
+/* === Animación de entrada === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Fondo general === */
+#main-content {
+  background-color: #f4f7fb; /* Azul grisáceo institucional suave */
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* === Bloque principal === */
+.academic-offer {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  animation: fadeIn 0.6s ease-in-out;
+  border-top: 6px solid #0b3d91; /* Azul institucional más profundo */
+}
+
+/* === Cabecera === */
+.academic-offer__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #d0d7e2;
+}
+
+.academic-offer__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b3d91;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.academic-offer__subtitle {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-top: 0.5rem;
+}
+
+/* === Contenedor de ítems === */
+.academic-offer__content {
+  margin-top: 1rem;
+}
+
+.academic-offer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* === Ítem individual === */
+.academic-offer__item {
+  background-color: #f9fafc;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e9f2;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.academic-offer__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(11, 61, 145, 0.15);
+}
+
+/* === Enlace del ítem === */
+.academic-offer__link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0b3d91;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  border-left: 5px solid transparent;
+}
+
+.academic-offer__link:hover {
+  background-color: #eaf1fb;
+  border-left-color: #0b3d91;
+  color: #072b6f;
+}
+
+/* === Footer informativo === */
+.academic-offer__footer {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.8rem;
+  background-color: #eef5ff;
+  border-radius: 10px;
+  border: 1px solid #cbdcf3;
+  border-left: 6px solid #0b3d91;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1e293b;
+}
+
+.academic-offer__footer-icon {
+  font-size: 1.5rem;
+  color: #0b3d91;
+}
+
+.academic-offer__footer-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* === Responsividad === */
+@media (max-width: 768px) {
+  .academic-offer {
+    padding: 2rem 1.5rem;
+  }
+
+  .academic-offer__title {
+    font-size: 1.7rem;
+  }
+
+  .academic-offer__link {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}

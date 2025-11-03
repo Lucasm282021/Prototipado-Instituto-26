@@ -1,19 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.getElementById("main-content");
 
-  // ✅ Cargar contenido inicial por defecto
-  fetch("/pages/inicio.html")
-    .then(response => response.text())
-    .then(html => {
+  // 🚀 Función reutilizable para cargar páginas dinámicamente
+  async function loadPage(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const html = await response.text();
       main.innerHTML = html;
       if (main.firstElementChild) {
         main.firstElementChild.classList.add("fade-in");
       }
-    })
-    .catch(error => {
-      main.innerHTML = "<p>Error al cargar la página de inicio.</p>";
-      console.error("Error al cargar /pages/inicio.html:", error);
-    });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      main.innerHTML = `<p>Error al cargar la sección: ${url}</p>`;
+      console.error("Error al cargar contenido:", error);
+    }
+  }
+
+  // ✅ Cargar contenido inicial por defecto
+  loadPage("/pages/inicio.html");
     
   // 🔽 Activar comportamiento desplegable en ítems con dropdown
   const dropdownTriggers = document.querySelectorAll(".nav__item--has-dropdown > .nav__link");
@@ -48,33 +54,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 📦 Carga dinámica de secciones en el <main>
-  const navLinks = document.querySelectorAll(".nav__link, .nav__dropdown-link");
+  // 📦 Carga dinámica de contenido usando delegación de eventos
+  // Esto funciona para los enlaces de navegación y también para los enlaces cargados dinámicamente (ej. en inicio.html)
+  document.addEventListener("click", async (event) => {
+    // Busca el enlace más cercano al elemento clickeado
+    const link = event.target.closest("a");
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", async event => {
-      event.preventDefault();
-      const href = link.getAttribute("href");
+    // Si no es un enlace o no tiene un href válido, no hacemos nada
+    if (!link || !link.href) return;
 
-      // Ignorar enlaces vacíos o #
-      if (!href || href === "#" || !href.endsWith(".html")) return;
+    // Solo interceptamos enlaces internos que cargan páginas .html
+    // Los enlaces a '#' (para dropdowns) o enlaces externos (target="_blank") se ignoran.
+    const href = link.getAttribute("href");
+    if (!href || href === "#" || !href.endsWith(".html") || link.target === "_blank") {
+      return;
+    }
 
-      try {
-        const response = await fetch(href);
-        const html = await response.text();
-        main.innerHTML = html;
+    // Prevenimos la navegación normal del navegador
+    event.preventDefault();
 
-        // Aplicar animación de entrada
-        if (main.firstElementChild) {
-          main.firstElementChild.classList.add("fade-in");
-        }
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } catch (error) {
-        main.innerHTML = `<p>Error al cargar la sección: ${href}</p>`;
-        console.error("Error al cargar contenido:", error);
-      }
-    });
+    loadPage(href);
   });
 
   // === Modal de login: abrir, cerrar y accesibilidad ===
@@ -122,12 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Cerrar al hacer click fuera del contenido (overlay)
-    loginModal.addEventListener('click', (e) => {
-      if (e.target === loginModal) {
-        closeModal();
-      }
-    });
+    // Se ha eliminado el cierre del modal al hacer clic en el overlay para evitar cierres accidentales.
 
     // Cerrar con ESC y trap simple de tab
     document.addEventListener('keydown', (e) => {
@@ -212,10 +206,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Cerrar modal
         if (loginModal) {
           // usar la función closeModal si está en el scope
-          const closeEvent = new Event('closeModalRequest');
-          loginModal.dispatchEvent(closeEvent);
-          // fallback: invocar directamente if function available
-          if (typeof window.closeModal === 'function') window.closeModal();
+          const closeBtn = loginModal.querySelector('.modal__close');
+          if (closeBtn) closeBtn.click();
+        }
+        // Redirigir al área correspondiente
+        if (user.role === 'alumno') {
+          loadPage('/pages/alumno.html');
+        } else if (user.role === 'profesor') {
+          loadPage('/pages/profesor.html');
         }
       } else {
         alert('Credenciales inválidas. Para demo usa: alumno/alumno123 o profesor/profesor123 (y selecciona el tipo).');
@@ -239,16 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearNavAuth();
       // Volver a la página de inicio
       if (main) {
-        fetch('/pages/inicio.html')
-          .then(res => res.text())
-          .then(html => {
-            main.innerHTML = html;
-            if (main.firstElementChild) main.firstElementChild.classList.add('fade-in');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          })
-          .catch(err => {
-            console.error('Error al cargar inicio después de logout:', err);
-          });
+        loadPage('/pages/inicio.html');
       }
     });
   }

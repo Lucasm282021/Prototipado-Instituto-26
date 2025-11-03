@@ -74,6 +74,20 @@ html, body {
     background-color: #005599;
     color: #ffcc00;
 }
+
+/* Estilo para resaltar el enlace de Noticias */
+.nav__link--highlight {
+    background-color: #ffcc00; /* Color secundario */
+    color: #003366; /* Color primario */
+    border-radius: 5px;
+    margin: 5px; /* Espacio alrededor del botón */
+    padding: 10px 20px; /* Ajuste de padding */
+}
+
+.nav__link--highlight:hover {
+    background-color: #e6b800; /* Amarillo más oscuro para el hover */
+    color: #ffffff;
+}
 /* === Dropdown === */
 .nav__item--has-dropdown .nav__dropdown {
     display: none;

@@ -1,53 +1,51 @@
-<section class="profesor-area" aria-labelledby="profesor-area__title"></section>
-<!-- Perfil docente institucional -->
-    <div class="parent">
-    
-        <!-- 🟩 Identidad profesional -->
-        <div class="div1 docente-identidad">
-            <figure class="docente-foto">
-            <img src="/images/foto_perfil_alumno/perfil-sin-foto.png" alt="Foto institucional del docente" class="docente-foto__img"
-                onerror="this.onerror=null;this.src='/assets/silueta.svg';">
-            <figcaption class="docente-foto__id">Legajo: DOC-2025-014</figcaption>
-            </figure>
-            <ul class="docente-datos">
-            <li><strong>Nombre:</strong> Prof. Laura Benítez</li>
-            <li><strong>DNI:</strong> 25.789.456</li>
-            <li><strong>Cargo:</strong> Titular de Diseño UX</li>
-            <li><strong>Departamento:</strong> Comunicación Visual</li>
-            <li><strong>Correo:</strong> <a href="mailto:laura.benitez@campus.edu.ar">laura.benitez@campus.edu.ar</a></li>
-            </ul>
-        </div>
+<section class="docente-area" aria-labelledby="docente-area__title">
+    <h2 id="docente-area__title" class="visually-hidden">Área del Docente</h2>
+    <div class="docente-dashboard">
+        <!-- 🟩 Perfil Institucional -->
+        <section class="docente-profile" aria-labelledby="docente-profile__title">
+            <h3 id="docente-profile__title" class="visually-hidden">Perfil Institucional del Docente</h3>
+            <div class="docente-profile__identity">
+                <figure class="docente-profile__photo">
+                    <img src="/images/foto_perfil_alumno/perfil-sin-foto.png" alt="Foto institucional del docente" class="docente-profile__photo-img" onerror="this.onerror=null;this.src='/assets/silueta.svg';">
+                    <figcaption class="docente-profile__photo-caption">Legajo: DOC-2025-014</figcaption>
+                </figure>
+                <div class="docente-profile__info">
+                    <ul class="docente-profile__info-list">
+                        <li><strong>Nombre:</strong> Prof. Laura Benítez</li>
+                        <li><strong>DNI:</strong> 25.789.456</li>
+                        <li><strong>Cargo:</strong> Titular de Diseño UX</li>
+                        <li><strong>Departamento:</strong> Comunicación Visual</li>
+                        <li><strong>Correo:</strong> <a href="mailto:laura.benitez@campus.edu.ar">laura.benitez@campus.edu.ar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <!-- 🟦 Formación y experiencia -->
-        <div class="div2 docente-formacion">
-            <h2 class="docente-titulo">Formación Académica y Trayectoria</h2>
-            <ul class="docente-formacion__lista">
-            <li><strong>Título:</strong> Lic. en Diseño Gráfico (UBA)</li>
-            <li><strong>Posgrado:</strong> Especialización en UX (UNLP)</li>
-            <li><strong>Idiomas:</strong> Español, Inglés</li>
-            <li><strong>Experiencia:</strong> 12 años en nivel terciario</li>
-            <li><strong>Asignaturas actuales:</strong> Diseño UX, Tipografía Editorial</li>
+        <!-- 🟦 Formación y Experiencia -->
+        <section class="docente-panel docente-panel--formacion" aria-labelledby="docente-formacion__title">
+            <h3 id="docente-formacion__title" class="docente-panel__title">Formación y Trayectoria</h3>
+            <ul class="docente-panel__list">
+                <li><strong>Título:</strong> Lic. en Diseño Gráfico (UBA)</li>
+                <li><strong>Posgrado:</strong> Especialización en UX (UNLP)</li>
+                <li><strong>Idiomas:</strong> Español, Inglés</li>
+                <li><strong>Experiencia:</strong> 12 años en nivel terciario</li>
+                <li><strong>Asignaturas actuales:</strong> Diseño UX, Tipografía Editorial</li>
             </ul>
-        </div>
+        </section>
 
-        <!-- 🟫 Competencias y filosofía -->
-        <div class="div3 docente-competencias">
-            <h2 class="docente-titulo">Competencias y Filosofía Educativa</h2>
+        <!-- 🟫 Competencias y Recursos -->
+        <section class="docente-panel docente-panel--competencias" aria-labelledby="docente-competencias__title">
+            <h3 id="docente-competencias__title" class="docente-panel__title">Competencias y Recursos</h3>
             <p>Aplica metodologías activas, gamificación y diseño centrado en el estudiante. Promueve la inclusión digital, el pensamiento crítico y la estética editorial como herramienta pedagógica.</p>
-        </div>
-
-        <!-- 🟪 Recursos y publicaciones -->
-        <div class="div4 docente-recursos">
-            <h2 class="docente-titulo">Recursos Compartidos</h2>
-            <ul class="docente-recursos__lista">
-            <li><a href="/materiales/ux-planificacion.pdf" target="_blank">Planificación UX 2025</a></li>
-            <li><a href="/presentaciones/tipografia-editorial.pptx" target="_blank">Presentación Tipografía</a></li>
-            <li><a href="/blog/laura-benitez" target="_blank">Blog docente</a></li>
+            <h4 class="docente-panel__subtitle">Recursos Compartidos</h4>
+            <ul class="docente-panel__list docente-panel__list--recursos">
+                <li><a href="/materiales/ux-planificacion.pdf" target="_blank">Planificación UX 2025</a></li>
+                <li><a href="/presentaciones/tipografia-editorial.pptx" target="_blank">Presentación Tipografía</a></li>
+                <li><a href="/blog/laura-benitez" target="_blank">Blog docente</a></li>
             </ul>
-        </div>
+        </section>
     </div>
 </section>
 <!-- Enlaces a scripts y estilos específicos -->
 <script src="/pages/profesor.js" defer></script>
 <link rel="stylesheet" href="/pages/profesor.css">
-
