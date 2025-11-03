@@ -1,26 +1,3 @@
-:root {
-  /* Paleta institucional */
-    --color-primario: #003366;
-    --color-secundario: #ffcc00;
-    --color-fondo: #f4f4f4;
-    --color-texto: #333333;
-    --color-blanco: #ffffff;
-
-  /* Tipografía */
-    --font-base: 'Segoe UI', sans-serif;
-    --font-acento: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-  /* Espaciado */
-    --espaciado-xl: 60px;
-    --espaciado-l: 30px;
-    --espaciado-m: 20px;
-    --espaciado-s: 10px;
-
-  /* Bordes y sombras */
-    --borde-radio: 10px;
-    --sombra-suave: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 /* === Bloque Principoal === */
 .main-banner {
     flex: 1;
@@ -28,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch; /* Asegura que todos los flex items tengan la misma altura */
-    gap: var(--espaciado-l);
+    gap: 30px;
 }
 /* === Bloque: info-box === */
 .info-box {
@@ -66,19 +43,19 @@
     color: var(--color-blanco);
     font-size: 0.85em;
     text-align: center;
-    padding: var(--espaciado-s);
+    padding: 10px;
     font-style: italic;
 }
 
 .info-box__content {
-    padding: var(--espaciado-m);
+    padding: var(--espaciado-m, 20px); /* Añadido valor por defecto para asegurar el espaciado */
     font-family: var(--font-base);
 }
 
 .info-box__title {
     color: var(--color-primario);
     font-size: 1.3em;
-    margin-bottom: var(--espaciado-s);
+    margin-bottom: 10px;
     font-weight: bold;
 }
 

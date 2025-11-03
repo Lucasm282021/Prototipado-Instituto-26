@@ -1,5 +1,23 @@
 /* === Reset y estructura base === */
 /* === Corrección avanzada para evitar salto de ancho por scroll === */
+:root {
+  /* Paleta institucional */
+    --color-primario: #003366;
+    --color-secundario: #ffcc00;
+    --color-primario-hover: #005599;
+    --color-secundario-hover: #e6b800;
+    --color-fondo: #f4f4f4;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+
+  /* Tipografía */
+    --font-base: 'Segoe UI', sans-serif;
+    --font-acento: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  /* Bordes y sombras */
+    --borde-radio: 10px;
+    --sombra-suave: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 html {
     overflow-y: scroll;
 }
@@ -12,7 +30,7 @@ html, body {
 .body {
     display: flex;
     flex-direction: column;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: var(--font-base);
     color: #ffffff;
 }
 
@@ -22,7 +40,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #003366;
+    background-color: var(--color-primario);
     text-align: center;
     padding: 12px;
     z-index: 1001; /* Z-index más bajo que la navegación */
@@ -32,7 +50,7 @@ html, body {
 .header__title {
     font-size: 1.8em;
     margin: 0;
-    color: #ffffff;
+    color: var(--color-blanco);
 }
 
 /* === Navegación principal === */
@@ -59,7 +77,7 @@ html, body {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--color-blanco);
     position: relative;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -78,7 +96,7 @@ html, body {
     top: 60px; /* altura estimada del header */
     left: 0;
     width: 100%;
-    background-color: #003366;
+    background-color: var(--color-primario);
     z-index: 1002; /* Z-index más alto que el header */
 }
 .nav__list {
@@ -96,35 +114,35 @@ html, body {
 .nav__link {
     display: block;
     padding: 15px 20px;
-    color: white;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--color-blanco);
+    font-family: var(--font-acento);
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .nav__link:hover {
-    background-color: #005599;
-    color: #ffcc00;
+    background-color: var(--color-primario-hover);
+    color: var(--color-secundario);
 }
 
 /* Estilo para resaltar el enlace de Noticias */
 .nav__link--highlight {
-    background-color: #ffcc00; /* Color secundario */
-    color: #003366; /* Color primario */
+    background-color: var(--color-secundario); /* Color secundario */
+    color: var(--color-primario); /* Color primario */
     border-radius: 5px;
     margin: 5px; /* Espacio alrededor del botón */
     padding: 10px 20px; /* Ajuste de padding */
 }
 
 .nav__link--highlight:hover {
-    background-color: #e6b800; /* Amarillo más oscuro para el hover */
-    color: #ffffff;
+    background-color: var(--color-secundario-hover); /* Amarillo más oscuro para el hover */
+    color: var(--color-blanco);
 }
 /* === Dropdown === */
 .nav__item--has-dropdown .nav__dropdown {
     display: none;
     position: absolute;
-    background-color: #005599;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: var(--color-primario-hover);
+    font-family: var(--font-acento);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -139,13 +157,13 @@ html, body {
 .nav__dropdown-link {
     display: block;
     padding: 10px 15px;
-    color: white;
+    color: var(--color-blanco);
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .nav__dropdown-link:hover {
-    background-color: #0077cc;
-    color: #ffcc00;
+    background-color: #0077cc; /* Un azul más brillante para el hover del submenú */
+    color: var(--color-secundario);
 }
 .nav__dropdown.show {
     display: block;
@@ -156,11 +174,11 @@ html, body {
 
 .nav__button--login {
     margin-left: 1rem;
-    padding: 0.625em 2rem; /* Equivale a 10px 16px si el font-size base es 16px */
-    background-color: #005599;
-    color: white;
+    padding: 0.625em 1.5rem;
+    background-color: var(--color-primario-hover);
+    color: var(--color-blanco);
     border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: var(--font-acento);
     font-size: 1rem; /* Escalable según raíz */
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -170,8 +188,8 @@ html, body {
 
 
 .nav__button--login:hover {
-    background-color: #0077cc;
-    color: #ffcc00;
+    background-color: #0077cc; /* Un azul más brillante para el hover del botón */
+    color: var(--color-secundario);
 }
 
 /* === Modal de inicio de sesión === */
@@ -202,12 +220,12 @@ html, body {
 }
 
 .modal__content {
-    background-color: #ffffff;
+    background-color: var(--color-blanco);
     padding: 2rem;
     border-radius: 0.75rem;
     width: 90%;
     max-width: 420px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: var(--font-acento);
     position: relative;
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
     animation: fadeInModal 0.4s ease;
@@ -227,7 +245,7 @@ html, body {
 .modal__login--title {
     margin: 0;
     font-size: 1.75rem;
-    color: #003366;
+    color: var(--color-primario);
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -236,7 +254,7 @@ html, body {
     display: block;
     margin-top: 1rem;
     font-size: 1rem;
-    color: #003366;
+    color: var(--color-primario);
 }
 
 .modal__form input {
@@ -250,16 +268,16 @@ html, body {
 }
 
 .modal__form input:focus {
-    border-color: #005599;
+    border-color: var(--color-primario-hover);
     box-shadow: 0 0 0 2px rgba(0, 85, 153, 0.2);
     outline: none;
 }
 
 .modal__submit {
     margin-top: 1.5rem;
-    padding: 0.75em 1.5em;
-    background-color: #005599;
-    color: white;
+    padding: 0.75em 1.5em;    
+    background-color: var(--color-primario-hover);
+    color: var(--color-blanco);
     border: none;
     font-size: 1rem;
     cursor: pointer;
@@ -269,7 +287,7 @@ html, body {
 }
 
 .modal__submit:hover {
-    background-color: #0077cc;
+    background-color: #0077cc; /* Un azul más brillante para el hover del botón */
     transform: scale(1.02);
 }
 
@@ -281,13 +299,13 @@ html, body {
 }
 
 .modal__links a {
-    color: #005599;
+    color: var(--color-primario-hover);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .modal__links a:hover {
-    color: #0077cc;
+    color: #0077cc; /* Un azul más brillante para el hover del link */
     text-decoration: underline;
 }
 
@@ -298,31 +316,30 @@ html, body {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #003366;
+    color: var(--color-primario);
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .modal__close:hover {
-    color: #0077cc;
+    color: #0077cc; /* Un azul más brillante para el hover del close */
 }
 
 /* === Main content === */
 .main-content {
     flex: 1;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: var(--espaciado-l);
-    padding: var(--espaciado-xl) var(--espaciado-m);
+    /* Eliminamos flex-wrap y gap para que el contenedor hijo controle el layout */
+    padding: 115px 20px 40px; /* Ajuste de padding: top (header+nav) | horizontal | bottom */
     background-color: var(--color-fondo);
-    margin-top: 70px; /* altura estimada de la nav */
+    /* margin-top ya no es necesario con el padding ajustado */
 }
 
 /* === Footer === */
 .footer {
-    background-color: #003366;
-    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
     padding: 0;
     display: flex;
     justify-content: center;
@@ -363,7 +380,7 @@ html, body {
 .footer__caption {
     margin-top: 1px;
     font-size: 0.9em;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     font-weight: bold;
     letter-spacing: 0.5px;
 }
@@ -380,7 +397,7 @@ html, body {
 }
 
 .footer__link {
-    color: #ffcc00;
+    color: var(--color-secundario);
     text-decoration: none;
 }
 
@@ -404,7 +421,7 @@ html, body {
     }
 
     .main-content {
-        padding: var(--espaciado-l) var(--espaciado-s); /* Reduce el padding lateral */
+        padding: 115px 10px 20px; /* Ajusta padding para móvil */
     }
 
     .footer__content {
@@ -419,15 +436,16 @@ html, body {
     }
 
     .nav__wrapper {
-        justify-content: flex-end; /* Alinea el botón a la derecha */
+        justify-content: space-between; /* Coloca el menú a la izquierda y el botón a la derecha */
+        position: relative;
     }
 
     .nav__list {
         position: fixed;
         top: 115px; /* Debajo del header y la nav */
         left: 0;
-        width: 100%;
-        background-color: #003366;
+        width: 100%;        
+        background-color: var(--color-primario);
         flex-direction: column;
         align-items: center;
         padding: 1rem 0;
@@ -447,12 +465,20 @@ html, body {
 
     .nav__item--has-dropdown .nav__dropdown {
         position: static;
-        background-color: #004488; /* Un poco más claro para diferenciar */
+        background-color: rgba(0,0,0,0.15); /* Fondo sutil para el submenú */
         min-width: 100%;
         box-shadow: none;
+        display: none; /* Oculto por defecto, JS lo mostrará */
     }
 
-    .nav__button--login {
-        display: none; /* Oculta los botones de login/logout en la barra */
+    /* Asegura que los botones de login/logout sean visibles en el menú móvil,
+       pero solo si no tienen el atributo 'hidden' */
+    .nav__button--login:not([hidden]) {
+        /* Lo hacemos un botón discreto y lo mantenemos en el flujo para alinearlo a la derecha */
+        display: inline-block;
+        margin-left: auto; /* Empuja el botón a la derecha */
+        padding: 0.5em 1em; /* Padding más pequeño para un botón discreto */
+        font-size: 0.9rem; /* Tamaño de fuente reducido */
+        width: auto;
     }
 }

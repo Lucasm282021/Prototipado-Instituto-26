@@ -4,36 +4,20 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Variables globales === */
-:root {
-  --color-primario: #2563eb;
-  --color-texto: #111827;
-  --color-subtexto: #6b7280;
-  --color-fondo: #f9fafb;
-  --color-superficie: #ffffff;
-  --color-blanco: #ffffff;
-  --sombra-suave: 0 6px 16px rgba(0, 0, 0, 0.06);
-  --borde-radio: 10px;
-  --espaciado-s: 8px;
-  --espaciado-m: 20px;
-  --espaciado-l: 40px;
-  --font-base: 'Inter', 'Segoe UI', Roboto, sans-serif;
-}
-
 /* === Fondo general === */
 #main-content {
   background-color: var(--color-fondo);
   min-height: 100vh;
-  padding-bottom: var(--espaciado-l);
+  padding-bottom: 40px;
 }
 
 /* === Contenedor principal === */
 .gallery-section {
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--espaciado-l);
+  padding: 40px;
   animation: fadeIn 0.6s ease-out;
-  font-family: var(--font-base);
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
   color: var(--color-texto);
 }
 
@@ -46,14 +30,14 @@
 .gallery-section__title {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--color-primario);
+  color: var(--color-primario-hover); /* Usamos un azul más vibrante para títulos */
   margin: 0;
 }
 
 .gallery-section__subtitle {
   font-size: 1rem;
-  color: var(--color-subtexto);
-  margin-top: var(--espaciado-s);
+  color: #666; /* Un gris estándar para subtexto */
+  margin-top: 8px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -64,15 +48,15 @@
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--espaciado-m);
+  gap: 20px;
 }
 
 /* === Ítem de la galería === */
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: var(--borde-radio);
-  background-color: var(--color-superficie);
+  border-radius: var(--borde-radio, 10px);
+  background-color: var(--color-blanco);
   box-shadow: var(--sombra-suave);
   aspect-ratio: 4 / 3;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -80,7 +64,7 @@
 
 .gallery-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 85, 153, 0.15); /* Sombra con el color primario */
 }
 
 /* === Imagen === */
@@ -122,13 +106,13 @@
   }
 
   .gallery-grid {
-    gap: var(--espaciado-s);
+    gap: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .gallery-section {
-    padding: var(--espaciado-m);
+    padding: 20px;
   }
 
   .gallery-item__caption {
