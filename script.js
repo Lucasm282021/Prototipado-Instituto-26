@@ -20,6 +20,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Cargar contenido inicial por defecto
   loadPage("/pages/inicio.html");
+
+  // 🍔 Menú de hamburguesa para móvil
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('nav__list--show');
+      const isExpanded = navMenu.classList.contains('nav__list--show');
+      navToggle.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Cierra el menú móvil al hacer clic en un enlace
+    navMenu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) {
+            navMenu.classList.remove('nav__list--show');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+
+  }
+
     
   // 🔽 Activar comportamiento desplegable en ítems con dropdown
   const dropdownTriggers = document.querySelectorAll(".nav__item--has-dropdown > .nav__link");

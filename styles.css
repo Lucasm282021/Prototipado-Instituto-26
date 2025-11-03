@@ -25,7 +25,7 @@ html, body {
     background-color: #003366;
     text-align: center;
     padding: 12px;
-    z-index: 1002;
+    z-index: 1001; /* Z-index más bajo que la navegación */
 }
 
 
@@ -42,13 +42,44 @@ html, body {
     align-items: center;
     padding: 0 1rem;
 }
+
+.nav__toggle {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1005;
+}
+
+.nav__toggle-icon,
+.nav__toggle-icon::before,
+.nav__toggle-icon::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav__toggle-icon::before {
+    top: -8px;
+}
+
+.nav__toggle-icon::after {
+    top: 5px;
+}
+
+
 .nav {
     position: fixed;
     top: 60px; /* altura estimada del header */
     left: 0;
     width: 100%;
     background-color: #003366;
-    z-index: 1001;
+    z-index: 1002; /* Z-index más alto que el header */
 }
 .nav__list {
     list-style: none;
@@ -364,4 +395,64 @@ html, body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsividad General === */
+@media (max-width: 768px) {
+    .header__title {
+        font-size: 1.2em; /* Reduce el tamaño del título en móviles */
+    }
+
+    .main-content {
+        padding: var(--espaciado-l) var(--espaciado-s); /* Reduce el padding lateral */
+    }
+
+    .footer__content {
+        flex-direction: column; /* Apila los elementos del footer */
+        text-align: center;
+    }
+}
+/* === Responsividad para Navegación === */
+@media (max-width: 1024px) {
+    .nav__toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    .nav__wrapper {
+        justify-content: flex-end; /* Alinea el botón a la derecha */
+    }
+
+    .nav__list {
+        position: fixed;
+        top: 115px; /* Debajo del header y la nav */
+        left: 0;
+        width: 100%;
+        background-color: #003366;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transform: translateY(-150%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav__list--show {
+        transform: translateY(0);
+    }
+
+    .nav__item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav__item--has-dropdown .nav__dropdown {
+        position: static;
+        background-color: #004488; /* Un poco más claro para diferenciar */
+        min-width: 100%;
+        box-shadow: none;
+    }
+
+    .nav__button--login {
+        display: none; /* Oculta los botones de login/logout en la barra */
+    }
 }

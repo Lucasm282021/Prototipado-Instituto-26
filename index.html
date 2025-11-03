@@ -15,6 +15,9 @@
     <!-- Navegación principal -->
     <nav class="nav" aria-label="Navegación principal">
         <div class="nav__wrapper">
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav__toggle-icon"></span>
+            </button>
             <ul class="nav__list" id="nav-menu">
             <li class="nav__item"><a class="nav__link nav__link--highlight" href="/pages/noticias.html">Noticias</a></li>
             <li class="nav__item"><a class="nav__link" href="/pages/inicio.html">Inicio</a></li>
@@ -28,7 +31,8 @@
                 <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/clases-virtuales.html">Clases Virtuales</a></li>
                 </ul>
             </li>
-            <li class="nav__item"><a class="nav__link" href="/pages/galeria.html">Galeria</a></li>
+            <li class="nav__item"><a class="nav__link" href="/pages/galeria.html">Galería</a></li>
+            <li class="nav__item"><a class="nav__link" href="/pages/construction.html">Comunidad Educativa</a></li>
             <!-- Items visibles sólo para usuarios autenticados por rol -->
             <li class="nav__item nav__item--hidden" id="nav-alumno" hidden><a class="nav__link" href="/pages/alumno.html">Área Alumno</a></li>
             <li class="nav__item nav__item--hidden" id="nav-profesor" hidden><a class="nav__link" href="/pages/profesor.html">Área Profesor</a></li>
