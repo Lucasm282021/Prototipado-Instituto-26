@@ -240,3 +240,30 @@
   box-shadow: var(--sombra-suave);
 }
 
+/* === Responsividad para Área Alumno === */
+@media (max-width: 992px) {
+  .student-dashboard {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    grid-template-rows: auto;
+    padding: 1rem;
+  }
+
+  .student-profile,
+  .academic-summary,
+  .academic-performance {
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+    grid-row: auto;
+    margin-bottom: 1rem;
+  }
+
+  .student-profile__info-list {
+    grid-template-columns: 1fr; /* Lista de info en una columna */
+  }
+}
+
+@media (max-width: 600px) {
+  .student-profile__identity {
+    flex-direction: column; /* Apila la foto y la info */
+    align-items: center;
+  }
+}
