@@ -112,6 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+  // 🧹 Limpiar estado del menú móvil al cambiar a vista de escritorio
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      if (navMenu && navMenu.classList.contains('nav__list--visible')) {
+        navMenu.classList.remove('nav__list--visible');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('body--sidebar-open');
+        if (overlay) {
+          overlay.classList.remove('overlay--visible');
+        }
+        navMenu.classList.remove('nav__list--submenu-active');
+        const submenuContainer = navMenu.querySelector('.nav__submenu-container');
+        if (submenuContainer) submenuContainer.innerHTML = '';
+      }
+    }
+  });
 
 
   // 🔒 Cerrar dropdowns si se hace clic fuera

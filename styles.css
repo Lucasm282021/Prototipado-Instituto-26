@@ -38,7 +38,7 @@ html, body {
 
 .main-content {
   flex: 1; /* Hace que el contenido principal ocupe el espacio sobrante */
-  padding-top: 80px; /* Espacio para el nav fijo */
+  padding-top: 90px; /* Espacio para el nav fijo (70px de header + 20px extra) */
   padding-bottom: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -77,7 +77,7 @@ html, body {
     background-color: var(--color-primario);
     z-index: 1002; /* Asegura que el header esté por encima del contenido */
     padding: 0 1rem;
-    height: 60px;
+    height: 70px; /* Aumentado para un logo más grande */
     box-sizing: border-box;
 }
 
@@ -86,7 +86,7 @@ html, body {
 }
 
 .header__logo-img {
-    height: 40px;
+    height: 50px; /* Aumentado el tamaño del logo */
     width: auto;
 }
 
@@ -96,7 +96,7 @@ html, body {
   display: flex;
   justify-content: center; /* Centra la lista de navegación (.nav__list) */
   align-items: center;
-  height: 60px;
+  height: 70px; /* Aumentado para coincidir con el header */
 }
 
 .nav__toggle {
@@ -238,18 +238,20 @@ html, body {
 
 /* Re-aplicar estilos de botón a los enlaces de login/logout */
 .header__auth-list .nav__item .nav__link {
-    padding: 0.625em 1.5rem;
-    background-color: var(--color-primario-hover);
+    background-color: transparent;
     color: var(--color-blanco);
-    border-radius: 0.25em;
+    border: 2px solid var(--color-blanco);
+    border-radius: 50px;
     font-family: var(--font-acento);
     font-size: 1rem;
+    font-weight: bold;
+    padding: .6em 3rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header__auth-list .nav__item .nav__link:hover {
-    background-color: #0077cc;
-    color: var(--color-secundario);
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
 }
 
 /* === Modal de inicio de sesión === */
@@ -463,14 +465,16 @@ html, body {
         height: 100vh; /* Ocupa toda la altura de la ventana */
         width: 180px; /* Ancho del menú, puedes ajustar este valor a tu gusto */
         background-color: var(--color-primario);
-        flex-direction: column; /* Elementos apilados verticalmente */
-        padding-top: 60px; /* Espacio para el logo/header */
+        flex-direction: column;
+        padding-top: 70px; /* Ajustado a la nueva altura del header */
         transform: translateX(-100%); /* Oculto por defecto */
         transition: transform 0.3s ease-in-out; /* Transición suave */
         z-index: 1004; /* Asegura que esté sobre el overlay y el header */
         /* En móvil, el nav__list no necesita justify-content: center; porque es una columna */
         justify-content: flex-start;
         align-items: center; /* Alinea los items a la izquierda */
+        padding-bottom: 1rem; /* Añade espacio en la parte inferior */
+        box-sizing: border-box; /* Asegura que el padding se incluya en la altura total */
     }
 
     .nav__list.nav__list--visible {
@@ -496,6 +500,35 @@ html, body {
         box-sizing: border-box; /* Incluye el padding en el ancho */
         align-self: center; /* Centra este ítem dentro del flex container (nav__list) */
     }
+
+    /* Estilos para los botones de autenticación en el menú móvil */
+    .nav__item--mobile-auth {
+        width: 100%;
+        padding: 0 1rem 1rem 1rem; /* Añade padding para separar el botón de los bordes */
+        box-sizing: border-box;
+        margin-top: 3rem;
+    }
+    /* Empuja el primer botón de autenticación (y los que le siguen) hacia el final del menú */
+    .nav__item--mobile-auth:first-of-type {
+        margin-top: auto; /* Empuja el botón hacia la parte inferior del contenedor flex */
+    }
+
+    .nav__item--mobile-auth .nav__link {
+        background-color: transparent; /* Fondo transparente para estilo "outline" */
+        color: var(--color-blanco); /* Texto blanco para contraste */
+        border: 2px solid var(--color-blanco); /* Borde blanco */
+        border-radius: 50px; /* Estilo de píldora moderno */
+        text-align: center;
+        font-weight: bold;
+        padding: 12px 20px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav__item--mobile-auth .nav__link:hover {
+        background-color: var(--color-blanco);
+        color: var(--color-primario);
+    }
+
     .nav__item--mobile-auth:not([hidden]) {
         display: block;
     }
@@ -511,7 +544,7 @@ html, body {
     }
 
     .main-content {
-        padding-top: 60px;
+        padding-top: 70px; /* Ajustado a la nueva altura del header */
     }
 
     .nav__dropdown {
