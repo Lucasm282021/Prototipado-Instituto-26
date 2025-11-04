@@ -27,15 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('nav__list--show');
-      const isExpanded = navMenu.classList.contains('nav__list--show');
+      navMenu.classList.toggle('nav__list--visible');
+      const isExpanded = navMenu.classList.contains('nav__list--visible');
       navToggle.setAttribute('aria-expanded', isExpanded);
     });
 
     // Cierra el menú móvil al hacer clic en un enlace
     navMenu.addEventListener('click', (event) => {
         if (event.target.closest('a')) {
-            navMenu.classList.remove('nav__list--show');
+            navMenu.classList.remove('nav__list--visible');
             navToggle.setAttribute('aria-expanded', 'false');
         }
     });
