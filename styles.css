@@ -531,8 +531,9 @@ html, body {
     }
 
     /* Lógica de visibilidad para el submenú */
+    /* Oculta los items principales, pero no el logo del sidebar */
     .nav__list--submenu-active .nav__item--main {
-        display: none;
+        display: none; /* Oculta los items del menú principal */
     }
     .nav__list--submenu-active .nav__item--has-dropdown {
         display: none; /* Ocultar también el trigger "Educativo" */
