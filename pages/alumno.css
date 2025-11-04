@@ -1,4 +1,5 @@
-:root {
+/* 🧭 Área general */
+.student-area {
   --color-fondo: #f4f8fb;
   --color-panel: #ffffff;
   --color-primario: #002b5c;
@@ -14,10 +15,6 @@
   --radio-borde: 0.75rem;
   --sombra-suave: 0 0.25rem 0.75rem var(--color-sombra);
   --fuente-base: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-/* 🧭 Área general */
-.student-area {
   width: 100%;
   font-family: var(--fuente-base);
   background-color: var(--color-fondo);

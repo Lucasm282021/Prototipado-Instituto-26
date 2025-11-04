@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="body">
-    <!-- Encabezado -->
-    <header class="header">
-        <h1 class="header__title">
-            <span class="header__title--full">INSTITUTO SUPERIOR DE FORMACIÓN DOCENTE Y TÉCNICA N° 26</span>
-            <span class="header__title--short">ISDFDyT N°26</span>
-        </h1>
-    </header>
+    <div class="overlay"></div>
     <!-- Navegación principal -->
     <nav class="nav" aria-label="Navegación principal">
         <div class="nav__wrapper">
+
             <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
                 <span class="nav__toggle-icon"></span>
             </button>
             <ul class="nav__list" id="nav-menu">
+            <li class="nav__item nav__item--logo">
+                <a href="/pages/inicio.html">
+                    <img src="images/logo26.png" alt="Logo del Instituto" class="nav__logo-img">
+                </a>
+            </li>
             <li class="nav__item"><a class="nav__link nav__link--highlight" href="/pages/noticias.html">Noticias</a></li>
             <li class="nav__item"><a class="nav__link" href="/pages/inicio.html">Inicio</a></li>
             <li class="nav__item"><a class="nav__link" href="/pages/institucional.html">Institucional</a></li>
@@ -38,9 +38,10 @@
             <!-- Items visibles sólo para usuarios autenticados por rol -->
             <li class="nav__item nav__item--hidden" id="nav-alumno" hidden><a class="nav__link" href="/pages/alumno.html">Área Alumno</a></li>
             <li class="nav__item nav__item--hidden" id="nav-profesor" hidden><a class="nav__link" href="/pages/profesor.html">Área Profesor</a></li>
+            <li class="nav__item"><a href="#" class="nav__link" id="login-button">Login</a></li>
+            <li class="nav__item nav__item--hidden" id="logout-button" hidden><a href="#" class="nav__link">Logout</a></li>
+            <li class="nav__item nav__item--placeholder"></li>
             </ul>
-            <button class="nav__button--login" id="login-button" aria-label="Iniciar sesión">Login</button>
-            <button class="nav__button--login nav__button--hidden" id="logout-button" aria-label="Cerrar sesión" hidden>Logout</button>
         </div>
     </nav>
     <div class="modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
@@ -79,12 +80,7 @@
     <!-- Pie institucional -->
     <footer class="footer" aria-label="Información institucional">
         <div class="footer__content">
-        <div class="footer__logo">
-            <figure class="footer__figure">
-                <img class="footer__image" src="images/logo26.png" alt="Logo del Instituto" loading="lazy">
-                <figcaption class="footer__caption">ISFDyT N°26</figcaption>
-            </figure>
-            </div>
+
             <div class="footer__contact">
             <p><strong>Horarios de atención:</strong> 18:20 a 22:20 hs</p>
             <p><strong>Dirección:</strong> Marquez 51, Dolores</p>

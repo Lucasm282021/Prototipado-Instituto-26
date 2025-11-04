@@ -192,14 +192,14 @@ document.addEventListener("DOMContentLoaded", () => {
       logoutButton.hidden = false;
       logoutButton.style.display = '';
     }
-    if (loginButton) loginButton.hidden = true;
+    if (loginButton) loginButton.parentElement.hidden = true;
   }
 
   function clearNavAuth() {
     if (navAlumno) navAlumno.hidden = true;
     if (navProfesor) navProfesor.hidden = true;
     if (logoutButton) logoutButton.hidden = true;
-    if (loginButton) loginButton.hidden = false;
+    if (loginButton) loginButton.parentElement.hidden = false;
   }
 
   // Restaurar sesión si existe
