@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         main.firstElementChild.classList.add("fade-in");
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // ✨ Mejora de accesibilidad: Mover el foco al nuevo contenido
+      // Esto ayuda a los usuarios de lectores de pantalla a saber que la página cambió.
+      const newHeading = main.querySelector('h1, h2, h3');
+      if (newHeading) {
+        newHeading.setAttribute('tabindex', '-1'); // Hacerlo enfocable programáticamente
+        newHeading.focus();
+      }
     } catch (error) {
       main.innerHTML = `<p>Error al cargar la sección: ${url}</p>`;
       console.error("Error al cargar contenido:", error);
@@ -48,8 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const link = event.target.closest('a');
         const submenuContainer = navMenu.querySelector('.nav__submenu-container');
 
-        // Solo cierra el menú si el enlace NO es un activador de submenú
-        if (link && !link.classList.contains('nav__dropdown-link--back') && !link.closest('.nav__item--has-dropdown')) {
+        // Cierra el menú si se hace clic en un enlace que no sea un activador de submenú,
+        // o si es un enlace dentro del submenú ya abierto.
+        const isSubmenuLink = link && link.closest('.nav__submenu-container');
+        const isMainMenuTrigger = link && link.closest('.nav__item--has-dropdown');
+
+        if (link && !link.classList.contains('nav__dropdown-link--back') && (!isMainMenuTrigger || isSubmenuLink)) {
             navMenu.classList.remove('nav__list--visible');
             navToggle.setAttribute('aria-expanded', 'false');
             document.body.classList.remove('body--sidebar-open');
@@ -161,6 +173,16 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     loadPage(href);
+
+    // ✨ Mejora de UX: Cerrar cualquier dropdown de escritorio abierto después de la navegación.
+    // Esto es para el caso en que se haga clic en un enlace dentro de un dropdown (ej. Educativo -> Carreras).
+    if (window.innerWidth > 768) {
+      document.querySelectorAll(".nav__dropdown.show").forEach(menu => {
+        menu.classList.remove("show");
+        const trigger = menu.previousElementSibling;
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+    }
   });
 
   // === Modal de login: abrir, cerrar y accesibilidad ===
@@ -366,4 +388,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+});
+
+// === Lógica de Acordeón para la página de Carreras ===
+document.addEventListener('DOMContentLoaded', () => {
+  const mainContent = document.getElementById('main-content');
+
+  // Usamos delegación de eventos en el contenedor principal
+  mainContent.addEventListener('toggle', (event) => {
+    // Nos aseguramos de que el evento provenga de un <details> de carrera
+    if (event.target.matches('.carrera-item')) {
+      // Si el elemento se está abriendo...
+      if (event.target.open) {
+        // ...buscamos todos los acordeones de carrera
+        mainContent.querySelectorAll('.carrera-item').forEach((details) => {
+          // Y cerramos todos los que no sean el que se acaba de abrir
+          if (details !== event.target) {
+            details.open = false;
+          }
+        });
+
+        // ✨ Mejora de UX: Hacer scroll suavemente hasta el elemento que se abrió
+        // El 'scroll-margin-top' en el CSS se encarga del offset del header.
+        event.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, true); // Usar 'capturing' para que se ejecute antes de otros posibles 'toggle' listeners.
 });

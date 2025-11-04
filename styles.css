@@ -1,7 +1,7 @@
 /* === Reset y estructura base === */
 :root {
   --color-primario: #003366;
-  --color-secundario: #ffcc00;
+  --color-secundario: #e6b800; /* Ajustado para mejorar contraste AA sobre blanco */
   --color-primario-hover: #005599;
   --color-secundario-hover: #e6b800;
   --color-fondo: #f4f4f4;
@@ -212,7 +212,7 @@ html, body {
 }
 
 .nav__dropdown-link:hover {
-  background-color: #0077cc;
+  background-color: var(--color-primario-hover);
   color: var(--color-secundario);
 }
 
@@ -499,6 +499,17 @@ html, body {
         width: 100%; /* Asegura que ocupe todo el ancho del sidebar */
         box-sizing: border-box; /* Incluye el padding en el ancho */
         align-self: center; /* Centra este ítem dentro del flex container (nav__list) */
+    }
+
+    /* Asegura que los items de la lista ocupen todo el ancho en el sidebar para un hover consistente */
+    .nav__list .nav__item {
+        width: 100%;
+        text-align: center; /* Centra el texto de los items en el sidebar */
+    }
+
+    /* Wrapper para el contenedor del submenú, para mantener el HTML válido */
+    .nav__submenu-container-wrapper {
+        width: 100%;
     }
 
     /* Estilos para los botones de autenticación en el menú móvil */
