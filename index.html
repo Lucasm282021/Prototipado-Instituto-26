@@ -19,7 +19,7 @@
         <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
             <span class="nav__toggle-icon"></span>
         </button>
-        <nav class="nav" aria-label="Navegación principal">
+        <nav class="nav" id="nav-container" aria-label="Navegación principal">
             <ul class="nav__list" id="nav-menu">
                 <!-- Logo dentro del sidebar para móvil -->
                 <li class="nav__item nav__item--sidebar-logo">
@@ -27,25 +27,32 @@
                         <img src="images/logo26.png" alt="Logo del Instituto" class="nav__sidebar-logo-img">
                     </a>
                 </li>
-                <li class="nav__item"><a class="nav__link nav__link--highlight" href="/pages/noticias.html">Noticias</a></li>
-                <li class="nav__item"><a class="nav__link" href="/pages/inicio.html">Inicio</a></li>
-                <li class="nav__item"><a class="nav__link" href="/pages/institucional.html">Institucional</a></li>
+                <li class="nav__item nav__item--main"><a class="nav__link nav__link--highlight" href="/pages/noticias.html">Noticias</a></li>
+                <li class="nav__item nav__item--main"><a class="nav__link" href="/pages/inicio.html">Inicio</a></li>
+                <li class="nav__item nav__item--main"><a class="nav__link" href="/pages/institucional.html">Institucional</a></li>
                 <li class="nav__item nav__item--has-dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                    <a class="nav__link" href="#">Educativo</a>
+                    <a class="nav__link nav__item--main" href="#">Educativo</a>
                     <ul class="nav__dropdown" role="menu">
+                        <li class="nav__dropdown-item nav__dropdown-item--back">
+                            <a href="#" class="nav__dropdown-link nav__dropdown-link--back" aria-label="Volver al menú principal">
+                                <svg class="nav__dropdown-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg> Volver
+                            </a>
+                        </li>
                         <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/carreras.html">Carreras</a></li>
                         <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/ofertas-academicas.html">Oferta Académica</a></li>
                         <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/inscripcion.html">Inscripción</a></li>
                         <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/clases-virtuales.html">Clases Virtuales</a></li>
                     </ul>
                 </li>
-                <li class="nav__item"><a class="nav__link" href="/pages/galeria.html">Galería</a></li>
+                <li class="nav__item nav__item--main"><a class="nav__link" href="/pages/galeria.html">Galería</a></li>
                 <!-- Items visibles sólo para usuarios autenticados por rol -->
-                <li class="nav__item nav__item--hidden" id="nav-alumno" hidden><a class="nav__link" href="/pages/alumno.html">Área Alumno</a></li>
-                <li class="nav__item nav__item--hidden" id="nav-profesor" hidden><a class="nav__link" href="/pages/profesor.html">Área Profesor</a></li>
+                <li class="nav__item nav__item--main nav__item--hidden" id="nav-alumno" hidden><a class="nav__link" href="/pages/alumno.html">Área Alumno</a></li>
+                <li class="nav__item nav__item--main nav__item--hidden" id="nav-profesor" hidden><a class="nav__link" href="/pages/profesor.html">Área Profesor</a></li>
                 <!-- Botones de login/logout para el menú móvil -->
-                <li class="nav__item nav__item--mobile-auth"><a href="#" class="nav__link" id="login-button-mobile">Login</a></li>
-                <li class="nav__item nav__item--hidden nav__item--mobile-auth" id="logout-button-mobile" hidden><a href="#" class="nav__link">Logout</a></li>
+                <li class="nav__item nav__item--main nav__item--mobile-auth"><a href="#" class="nav__link" id="login-button-mobile">Login</a></li>
+                <li class="nav__item nav__item--main nav__item--hidden nav__item--mobile-auth" id="logout-button-mobile" hidden><a href="#" class="nav__link">Logout</a></li>
+                <!-- Contenedor para inyectar el submenú en móvil -->
+                <div class="nav__submenu-container"></div>
             </ul>
         </nav>
         <div class="header__auth-buttons">

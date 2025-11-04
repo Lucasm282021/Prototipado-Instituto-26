@@ -207,8 +207,7 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav__dropdown.show,
-.nav__item--has-dropdown:hover .nav__dropdown {
+.nav__dropdown.show {
   display: block;
 }
 
@@ -217,6 +216,10 @@ html, body {
   color: var(--color-secundario);
 }
 
+/* Ocultar botón de volver en escritorio */
+.nav__dropdown-item--back {
+    display: none;
+}
 
 /* === Botones de autenticación en el header === */
 .header__auth-buttons {
@@ -459,14 +462,14 @@ html, body {
         left: 0; /* Desde el lado izquierdo */
         height: 100vh; /* Ocupa toda la altura de la ventana */
         width: 180px; /* Ancho del menú, puedes ajustar este valor a tu gusto */
-        background-color: var(--color-primario); /* Color de fondo */
+        background-color: var(--color-primario);
         flex-direction: column; /* Elementos apilados verticalmente */
         padding-top: 60px; /* Espacio para el logo/header */
         transform: translateX(-100%); /* Oculto por defecto */
         transition: transform 0.3s ease-in-out; /* Transición suave */
         z-index: 1004; /* Asegura que esté sobre el overlay y el header */
         /* En móvil, el nav__list no necesita justify-content: center; porque es una columna */
-        justify-content: flex-start; /* Alinea los items al inicio de la columna */
+        justify-content: flex-start;
         align-items: center; /* Alinea los items a la izquierda */
     }
 
@@ -512,9 +515,57 @@ html, body {
     }
 
     .nav__dropdown {
-        position: static;
+        /* En móvil, el dropdown no necesita estilos especiales ya que su contenido se inyecta en el nav__list */
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
         width: 100%;
-        background-color: var(--color-primario-hover);
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav__submenu-container {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Lógica de visibilidad para el submenú */
+    .nav__list--submenu-active .nav__item--main {
+        display: none;
+    }
+    .nav__list--submenu-active .nav__item--has-dropdown {
+        display: none; /* Ocultar también el trigger "Educativo" */
+    }
+    .nav__list--submenu-active .nav__submenu-container {
+        display: flex;
+    }
+
+    .nav__dropdown-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Aplicar el mismo estilo de los enlaces principales a los del submenú en móvil */
+    .nav__submenu-container .nav__dropdown-link {
+        padding: 15px 20px;
+        font-family: var(--font-acento);
+    }
+
+    /* Estilos para el botón de "Volver" en el submenú móvil */
+    .nav__dropdown-item--back {
+        display: block; /* Mostrar solo en móvil */
+        background-color: var(--color-primario);
+    }
+
+    .nav__dropdown-link--back {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .nav__dropdown-back-icon {
+        width: 24px;
+        height: 24px;
     }
 
     .footer {

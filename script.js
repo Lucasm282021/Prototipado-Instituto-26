@@ -37,16 +37,30 @@ document.addEventListener("DOMContentLoaded", () => {
       if (overlay) {
         overlay.classList.toggle('overlay--visible', isExpanded);
       }
+      // Si el menú se está cerrando, asegúrate de que vuelva al estado principal
+      if (!isExpanded) {
+        navMenu.classList.remove('nav__list--submenu-active');
+      }
     });
 
     // Cierra el menú móvil al hacer clic en un enlace
     navMenu.addEventListener('click', (event) => {
-        if (event.target.closest('a')) {
+        const link = event.target.closest('a');
+        const submenuContainer = navMenu.querySelector('.nav__submenu-container');
+
+        // Solo cierra el menú si el enlace NO es un activador de submenú
+        if (link && !link.classList.contains('nav__dropdown-link--back') && !link.closest('.nav__item--has-dropdown')) {
             navMenu.classList.remove('nav__list--visible');
             navToggle.setAttribute('aria-expanded', 'false');
             document.body.classList.remove('body--sidebar-open');
             if (overlay) {
               overlay.classList.remove('overlay--visible');
+            }
+
+            // Si el submenú estaba activo, lo resetea
+            if (navMenu.classList.contains('nav__list--submenu-active')) {
+                navMenu.classList.remove('nav__list--submenu-active');
+                if (submenuContainer) submenuContainer.innerHTML = '';
             }
         }
     });
@@ -57,26 +71,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
   // 🔽 Activar comportamiento desplegable en ítems con dropdown
-  const dropdownTriggers = document.querySelectorAll(".nav__item--has-dropdown > .nav__link");
+  const dropdownItems = document.querySelectorAll(".nav__item--has-dropdown");
 
-  dropdownTriggers.forEach(trigger => {
-    trigger.addEventListener("click", event => {
-      event.preventDefault();
-      const currentMenu = trigger.nextElementSibling;
+  dropdownItems.forEach(item => {
+    const trigger = item.querySelector('.nav__link');
+    const submenu = item.querySelector('.nav__dropdown');
+    const backButton = submenu.querySelector('.nav__dropdown-link--back');
+    const submenuContainer = navMenu.querySelector('.nav__submenu-container');
 
-      // Cerrar todos los dropdowns excepto el actual
-      document.querySelectorAll(".nav__dropdown").forEach(menu => {
-        if (menu !== currentMenu) {
-          menu.classList.remove("show");
-          menu.previousElementSibling.setAttribute("aria-expanded", "false");
+    if (trigger && submenu) {
+      trigger.addEventListener("click", event => {
+        event.preventDefault();
+
+        // Comportamiento para móvil: inyectar submenú
+        if (window.innerWidth <= 768) {
+          if (submenuContainer) {
+            // Clonar el submenú para no perder los listeners originales
+            submenuContainer.innerHTML = submenu.innerHTML;
+            navMenu.classList.add('nav__list--submenu-active');
+
+            // El botón "Volver" ahora está dentro del container, hay que buscarlo ahí
+            const newBackButton = submenuContainer.querySelector('.nav__dropdown-link--back');
+            if (newBackButton) {
+              newBackButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                navMenu.classList.remove('nav__list--submenu-active');
+                // Limpiar el contenedor para la próxima vez
+                submenuContainer.innerHTML = '';
+              });
+            }
+          }
+        } else {
+          // Comportamiento de escritorio: mostrar/ocultar dropdown
+          const isVisible = submenu.classList.toggle("show");
+          trigger.setAttribute("aria-expanded", isVisible.toString());
         }
       });
-
-      // Alternar visibilidad del menú actual
-      const isVisible = currentMenu.classList.toggle("show");
-      trigger.setAttribute("aria-expanded", isVisible.toString());
-    });
+    }
   });
+
+
+
+
 
   // 🔒 Cerrar dropdowns si se hace clic fuera
   document.addEventListener("click", event => {
@@ -199,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('body--sidebar-open');
       overlay.classList.remove('overlay--visible');
+      navMenu.classList.remove('nav__list--submenu-active'); // Resetea al menú principal
     });
   }
 
