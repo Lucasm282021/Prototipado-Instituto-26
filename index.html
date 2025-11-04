@@ -9,41 +9,52 @@
 </head>
 <body class="body">
     <div class="overlay"></div>
-    <!-- Navegación principal -->
-    <nav class="nav" aria-label="Navegación principal">
-        <div class="nav__wrapper">
-
-            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-                <span class="nav__toggle-icon"></span>
-            </button>
+    <!-- Encabezado principal -->
+    <header class="header">
+        <div class="header__logo-container">
+            <a href="/pages/inicio.html" class="header__logo-link">
+                <img src="images/logo26.png" alt="Logo del Instituto" class="header__logo-img">
+            </a>
+        </div>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span class="nav__toggle-icon"></span>
+        </button>
+        <nav class="nav" aria-label="Navegación principal">
             <ul class="nav__list" id="nav-menu">
-            <li class="nav__item nav__item--logo">
-                <a href="/pages/inicio.html">
-                    <img src="images/logo26.png" alt="Logo del Instituto" class="nav__logo-img">
-                </a>
-            </li>
-            <li class="nav__item"><a class="nav__link nav__link--highlight" href="/pages/noticias.html">Noticias</a></li>
-            <li class="nav__item"><a class="nav__link" href="/pages/inicio.html">Inicio</a></li>
-            <li class="nav__item"><a class="nav__link" href="/pages/institucional.html">Institucional</a></li>
-            <li class="nav__item nav__item--has-dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                <a class="nav__link" href="#">Educativo</a>
-                <ul class="nav__dropdown" role="menu">
-                <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/carreras.html">Carreras</a></li>
-                <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/ofertas-academicas.html">Oferta Académica</a></li>
-                <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/inscripcion.html">Inscripción</a></li>
-                <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/clases-virtuales.html">Clases Virtuales</a></li>
-                </ul>
-            </li>
-            <li class="nav__item"><a class="nav__link" href="/pages/galeria.html">Galería</a></li>
-            <!-- Items visibles sólo para usuarios autenticados por rol -->
-            <li class="nav__item nav__item--hidden" id="nav-alumno" hidden><a class="nav__link" href="/pages/alumno.html">Área Alumno</a></li>
-            <li class="nav__item nav__item--hidden" id="nav-profesor" hidden><a class="nav__link" href="/pages/profesor.html">Área Profesor</a></li>
-            <li class="nav__item"><a href="#" class="nav__link" id="login-button">Login</a></li>
-            <li class="nav__item nav__item--hidden" id="logout-button" hidden><a href="#" class="nav__link">Logout</a></li>
-            <li class="nav__item nav__item--placeholder"></li>
+                <!-- Logo dentro del sidebar para móvil -->
+                <li class="nav__item nav__item--sidebar-logo">
+                    <a href="/pages/inicio.html">
+                        <img src="images/logo26.png" alt="Logo del Instituto" class="nav__sidebar-logo-img">
+                    </a>
+                </li>
+                <li class="nav__item"><a class="nav__link nav__link--highlight" href="/pages/noticias.html">Noticias</a></li>
+                <li class="nav__item"><a class="nav__link" href="/pages/inicio.html">Inicio</a></li>
+                <li class="nav__item"><a class="nav__link" href="/pages/institucional.html">Institucional</a></li>
+                <li class="nav__item nav__item--has-dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav__link" href="#">Educativo</a>
+                    <ul class="nav__dropdown" role="menu">
+                        <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/carreras.html">Carreras</a></li>
+                        <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/ofertas-academicas.html">Oferta Académica</a></li>
+                        <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/inscripcion.html">Inscripción</a></li>
+                        <li class="nav__dropdown-item"><a class="nav__dropdown-link" href="/pages/clases-virtuales.html">Clases Virtuales</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a class="nav__link" href="/pages/galeria.html">Galería</a></li>
+                <!-- Items visibles sólo para usuarios autenticados por rol -->
+                <li class="nav__item nav__item--hidden" id="nav-alumno" hidden><a class="nav__link" href="/pages/alumno.html">Área Alumno</a></li>
+                <li class="nav__item nav__item--hidden" id="nav-profesor" hidden><a class="nav__link" href="/pages/profesor.html">Área Profesor</a></li>
+                <!-- Botones de login/logout para el menú móvil -->
+                <li class="nav__item nav__item--mobile-auth"><a href="#" class="nav__link" id="login-button-mobile">Login</a></li>
+                <li class="nav__item nav__item--hidden nav__item--mobile-auth" id="logout-button-mobile" hidden><a href="#" class="nav__link">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="header__auth-buttons">
+            <ul class="header__auth-list">
+                <li class="nav__item"><a href="#" class="nav__link" id="login-button">Login</a></li>
+                <li class="nav__item nav__item--hidden" id="logout-button" hidden><a href="#" class="nav__link">Logout</a></li>
             </ul>
         </div>
-    </nav>
+    </header>
     <div class="modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="modal__content">
             <h2 class="modal__login--title" id="modal-title">Iniciar sesión</h2>

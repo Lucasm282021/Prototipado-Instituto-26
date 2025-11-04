@@ -24,12 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🍔 Menú de hamburguesa para móvil
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
+  // Obtener el overlay
+  const overlay = document.querySelector('.overlay');
+
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('nav__list--visible');
       const isExpanded = navMenu.classList.contains('nav__list--visible');
       navToggle.setAttribute('aria-expanded', isExpanded);
+      document.body.classList.toggle('body--sidebar-open', isExpanded); // Activa/desactiva el scroll del body y el overlay
+      if (overlay) {
+        overlay.classList.toggle('overlay--visible', isExpanded);
+      }
     });
 
     // Cierra el menú móvil al hacer clic en un enlace
@@ -37,8 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target.closest('a')) {
             navMenu.classList.remove('nav__list--visible');
             navToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('body--sidebar-open');
+            if (overlay) {
+              overlay.classList.remove('overlay--visible');
+            }
         }
     });
+    
 
 
   }
@@ -101,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Modal de login: abrir, cerrar y accesibilidad ===
   const loginButton = document.getElementById('login-button');
+  const loginButtonMobile = document.getElementById('login-button-mobile');
   const loginModal = document.getElementById('login-modal');
   const modalClose = document.querySelector('.modal__close');
 
@@ -137,6 +150,13 @@ document.addEventListener("DOMContentLoaded", () => {
       openModal();
     });
 
+    if (loginButtonMobile) {
+      loginButtonMobile.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    }
+
     if (modalClose) {
       modalClose.addEventListener('click', (e) => {
         e.preventDefault();
@@ -171,9 +191,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
+  // Cierra el menú móvil al hacer clic en el overlay
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      navMenu.classList.remove('nav__list--visible');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('body--sidebar-open');
+      overlay.classList.remove('overlay--visible');
+    });
+  }
 
   // === Simulación de autenticación: alumno / profesor ===
   const logoutButton = document.getElementById('logout-button');
+  const logoutButtonMobile = document.getElementById('logout-button-mobile');
+
   const navAlumno = document.getElementById('nav-alumno');
   const navProfesor = document.getElementById('nav-profesor');
   const loginForm = document.querySelector('.modal__form');
@@ -192,14 +224,20 @@ document.addEventListener("DOMContentLoaded", () => {
       logoutButton.hidden = false;
       logoutButton.style.display = '';
     }
-    if (loginButton) loginButton.parentElement.hidden = true;
+    if (logoutButtonMobile) logoutButtonMobile.hidden = false;
+
+    if (loginButton) loginButton.parentElement.hidden = true; // Oculta el <li> del botón de login de escritorio
+    if (loginButtonMobile) loginButtonMobile.parentElement.hidden = true; // Oculta el <li> del botón de login móvil
   }
 
   function clearNavAuth() {
     if (navAlumno) navAlumno.hidden = true;
     if (navProfesor) navProfesor.hidden = true;
     if (logoutButton) logoutButton.hidden = true;
+    if (logoutButtonMobile) logoutButtonMobile.hidden = true;
+
     if (loginButton) loginButton.parentElement.hidden = false;
+    if (loginButtonMobile) loginButtonMobile.parentElement.hidden = false;
   }
 
   // Restaurar sesión si existe
@@ -259,6 +297,17 @@ document.addEventListener("DOMContentLoaded", () => {
       sessionStorage.removeItem('isfdyt_user');
       clearNavAuth();
       // Volver a la página de inicio
+      if (main) {
+        loadPage('/pages/inicio.html');
+      }
+    });
+  }
+
+  if (logoutButtonMobile) {
+    logoutButtonMobile.addEventListener('click', (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem('isfdyt_user');
+      clearNavAuth();
       if (main) {
         loadPage('/pages/inicio.html');
       }
