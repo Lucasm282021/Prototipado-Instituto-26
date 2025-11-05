@@ -38,7 +38,7 @@ html, body {
 
 .main-content {
   flex: 1; /* Hace que el contenido principal ocupe el espacio sobrante */
-  padding-top: 90px; /* Espacio para el nav fijo (70px de header + 20px extra) */
+  padding-top: 110px; /* Espacio para el nav fijo (70px de header + 40px extra) */
   padding-bottom: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -393,9 +393,9 @@ html, body {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 
