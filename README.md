@@ -56,7 +56,9 @@
 ---
 
 ### 5. Informe de Accesibilidad y SEO para Aplicación Web  
-**Auditoría automatizada: Lighthouse (Desktop / Mobile)**  
+ 
+![**Auditoría automatizada: Lighthouse (Desktop / Mobile)**](image/lighthouse.webp)
+
 
 #### Accesibilidad  
 - **Problemas detectados:**  
