@@ -747,3 +747,34 @@ html, body {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Estilos para los botones de navegación del modal de galería */
+.modal-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Eliminar padding por defecto del botón */
+    z-index: 2001; /* Asegura que estén por encima de la imagen */
+    transition: transform 0.2s ease-in-out;
+}
+
+.modal-nav-button:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav-button img {
+    width: 60px; /* Tamaño de los botones */
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.6)); /* Sombra para mejor visibilidad */
+}
+
+.modal-prev-button {
+    left: 20px;
+}
+
+.modal-next-button {
+    right: 20px;
+}

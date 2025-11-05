@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
       modalBackdrop.style.cursor = 'pointer';
 
       const modalContent = document.createElement('img');
-      modalContent.style.maxWidth = '80vw';
-      modalContent.style.maxHeight = '80vh';
+      modalContent.style.maxWidth = '90vw'; /* Aumentado para dar más espacio a la imagen */
+      modalContent.style.maxHeight = '90vh'; /* Aumentado para dar más espacio a la imagen */
       modalContent.style.objectFit = 'contain';
       modalContent.style.cursor = 'default';
 
       const closeButton = document.createElement('span');
-      closeButton.textContent = '×';
+      closeButton.textContent = '✕'; /* Usar un carácter 'X' más universal */
       closeButton.style.position = 'absolute';
       closeButton.style.top = '15px';
       closeButton.style.right = '35px';
@@ -129,11 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.style.cursor = 'pointer';
 
       const prevButton = document.createElement('button');
-      prevButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+      prevButton.innerHTML = `<img src="/images/botones/boron-retroceder-white.png" alt="Anterior">`;
       prevButton.className = 'modal-nav-button modal-prev-button';
 
       const nextButton = document.createElement('button');
-      nextButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+      nextButton.innerHTML = `<img src="/images/botones/boron-siguiente-white.png" alt="Siguiente">`;
       nextButton.className = 'modal-nav-button modal-next-button';
 
       function updateImage() {
