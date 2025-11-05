@@ -96,9 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!galleryGrid) return;
 
-    // --- Lógica del Modal (versión dinámica) ---
-    function showModal(imgSrc) {
-      // Crear elementos del modal dinámicamente
+    function showModal(images, initialIndex) {
+      let currentIndex = initialIndex;
+
       const modalBackdrop = document.createElement('div');
       modalBackdrop.style.position = 'fixed';
       modalBackdrop.style.top = '0';
@@ -113,9 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
       modalBackdrop.style.cursor = 'pointer';
 
       const modalContent = document.createElement('img');
-      modalContent.src = imgSrc;
-      modalContent.style.maxWidth = '90vw';
-      modalContent.style.maxHeight = '90vh';
+      modalContent.style.maxWidth = '80vw';
+      modalContent.style.maxHeight = '80vh';
       modalContent.style.objectFit = 'contain';
       modalContent.style.cursor = 'default';
 
@@ -129,12 +128,38 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.style.fontWeight = 'bold';
       closeButton.style.cursor = 'pointer';
 
-      // Añadir elementos al DOM
+      const prevButton = document.createElement('button');
+      prevButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+      prevButton.className = 'modal-nav-button modal-prev-button';
+
+      const nextButton = document.createElement('button');
+      nextButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+      nextButton.className = 'modal-nav-button modal-next-button';
+
+      function updateImage() {
+        modalContent.src = images[currentIndex];
+      }
+
+      prevButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+        updateImage();
+      });
+
+      nextButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+        updateImage();
+      });
+
+      modalBackdrop.appendChild(prevButton);
       modalBackdrop.appendChild(modalContent);
+      modalBackdrop.appendChild(nextButton);
       modalBackdrop.appendChild(closeButton);
       document.body.appendChild(modalBackdrop);
 
-      // Funcionalidad para cerrar y destruir el modal
+      updateImage();
+
       const closeModal = () => {
         document.body.removeChild(modalBackdrop);
       };
@@ -147,18 +172,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // --- Listeners ---
     galleryGrid.addEventListener('click', event => {
       const clickedItem = event.target.closest('.gallery-item');
       if (clickedItem) {
-        const image = clickedItem.querySelector('.gallery-item__image');
-        if (image) {
-          showModal(image.src);
+        const allVisibleItems = [...galleryItems].filter(item => item.style.display !== 'none');
+        const images = allVisibleItems.map(item => item.querySelector('.gallery-item__image').src);
+        const clickedImage = clickedItem.querySelector('.gallery-item__image');
+        if (clickedImage) {
+          const clickedIndex = images.findIndex(src => src === clickedImage.src);
+          showModal(images, clickedIndex);
         }
       }
     });
 
-    // --- Lógica de Filtros (sin cambios) ---
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
