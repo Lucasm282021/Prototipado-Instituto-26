@@ -1,39 +1,457 @@
+
 <section class="gallery-section" aria-labelledby="gallery-section__title">
     <header class="gallery-section__header">
         <h2 id="gallery-section__title" class="gallery-section__title">Galería Institucional</h2>
         <p class="gallery-section__subtitle">Un recorrido visual por nuestros eventos, instalaciones y la vida en el instituto.</p>
     </header>
 
+    <div class="filter-buttons">
+        <button class="filter-button active" data-filter="all">Todos</button>
+        <button class="filter-button" data-filter="actos">Actos</button>
+        <button class="filter-button" data-filter="charlas">Charlas</button>
+        <button class="filter-button" data-filter="titulos">Títulos</button>
+        <button class="filter-button" data-filter="varios">Varios</button>
+    </div>
+
     <div class="gallery-grid">
-        <figure class="gallery-item">
-            <img src="https://noticias.unsl.edu.ar/wp-content/uploads/2018/12/47385913_2144449492459758_2526295928101404672_n-740x380.jpg" alt="Acto de colación de grados" class="gallery-item__image" loading="lazy">
-            <figcaption class="gallery-item__caption">Acto de Colación</figcaption>
+        
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/1-1000x450.jpg" alt="1-1000x450" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">1 1000x450</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=60" alt="Clase con uso de tecnología" class="gallery-item__image" loading="lazy">
-            <figcaption class="gallery-item__caption">Innovación en el Aula</figcaption>
+        <figure class="gallery-item" data-category="charlas">
+            <img src="../images/galeria/1-suicidio-500x500.jpg" alt="1-suicidio-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">1 suicidio 500x500</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?auto=format&fit=crop&w=800&q=60" alt="Muestra de arte de los estudiantes" class="gallery-item__image" loading="lazy">
-            <figcaption class="gallery-item__caption">Muestra de Arte</figcaption>
+        <figure class="gallery-item" data-category="titulos">
+            <img src="../images/galeria/1-titulos-500x439.jpg" alt="1-titulos-500x439" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">1 titulos 500x439</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=60" alt="Estudiantes en una clase de educación física" class="gallery-item__image" loading="lazy">
-            <figcaption class="gallery-item__caption">Jornada Deportiva</figcaption>
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/10290612_10204202872616536_1894705002832225846_n.jpg" alt="10290612_10204202872616536_1894705002832225846_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">10290612_10204202872616536_1894705002832225846_n</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" alt="Actividad en el jardín de infantes" class="gallery-item__image" loading="lazy">
-            <figcaption class="gallery-item__caption">Prácticas Docentes</figcaption>
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/11-1000x529.jpg" alt="11-1000x529" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">11 1000x529</figcaption>
         </figure>
 
-        <figure class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=60" alt="Visita a un campo de producción" class="gallery-item__image" loading="lazy">
-            <figcaption class="gallery-item__caption">Salida Educativa</figcaption>
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/12-1000x750.jpg" alt="12-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">12 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/13-1000x450.jpg" alt="13-1000x450" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">13 1000x450</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="actos">
+            <img src="../images/galeria/13737649_1631391793838119_1316153328518628844_o-500x500.jpg" alt="13737649_1631391793838119_1316153328518628844_o-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">Acto de colación</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/14-1000x450.jpg" alt="14-1000x450" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">14 1000x450</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/15-1000x563.jpg" alt="15-1000x563" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">15 1000x563</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/16-1000x750.jpg" alt="16-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">16 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/17-562x1000.jpg" alt="17-562x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">17 562x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/18-750x1000.jpg" alt="18-750x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">18 750x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/19-1000x750.jpg" alt="19-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">19 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/2-1000x727.jpg" alt="2-1000x727" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">2 1000x727</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="charlas">
+            <img src="../images/galeria/2-suicidio-500x500.jpg" alt="2-suicidio-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">2 suicidio 500x500</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="titulos">
+            <img src="../images/galeria/2-titulos-500x500.jpg" alt="2-titulos-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">2 titulos 500x500</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/20-1000x750.jpg" alt="20-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">20 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/21-1000x602.jpg" alt="21-1000x602" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">21 1000x602</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/22-1000x750.jpg" alt="22-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">22 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/23-1000x750.jpg" alt="23-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">23 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/24-1000x750.jpg" alt="24-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">24 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/25-1000x750.jpg" alt="25-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">25 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="actos">
+            <img src="../images/galeria/250999_502800259732557_1707344605_n-500x500.jpg" alt="250999_502800259732557_1707344605_n-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">Acto</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/26-1000x750.jpg" alt="26-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">26 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/27-1000x563.jpg" alt="27-1000x563" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">27 1000x563</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/28-1000x750.jpg" alt="28-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">28 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/29-750x1000.jpg" alt="29-750x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">29 750x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/3-1000x929.jpg" alt="3-1000x929" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">3 1000x929</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/30-1000x750.jpg" alt="30-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">30 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/31-1000x750.jpg" alt="31-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">31 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/32-1000x911.jpg" alt="32-1000x911" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">32 1000x911</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/33-1000x750.jpg" alt="33-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">33 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/34-1000x894.jpg" alt="34-1000x894" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">34 1000x894</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/35.jpg" alt="35" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">35</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/36-1000x750.jpg" alt="36-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">36 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/37-1000x750.jpg" alt="37-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">37 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/38-1000x715.jpg" alt="38-1000x715" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">38 1000x715</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/39.jpg" alt="39" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">39</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/4-750x1000.jpg" alt="4-750x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">4 750x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/40-563x1000.jpg" alt="40-563x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">40 563x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/41-563x1000.jpg" alt="41-563x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">41 563x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/42-1000x563.jpg" alt="42-1000x563" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">42 1000x563</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/43-1000x661.jpg" alt="43-1000x661" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">43 1000x661</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/44-1000x750.jpg" alt="44-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">44 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/45-1000x522.jpg" alt="45-1000x522" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">45 1000x522</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/46-1000x750.jpg" alt="46-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">46 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/47-1000x750.jpg" alt="47-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">47 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/48-1000x750.jpg" alt="48-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">48 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/49-1000x750.jpg" alt="49-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">49 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/5-1000x750.jpg" alt="5-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">5 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/50-1000x750.jpg" alt="50-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">50 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/51-750x1000.jpg" alt="51-750x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">51 750x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/52-750x1000.jpg" alt="52-750x1000" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">52 750x1000</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/53-1000x750.jpg" alt="53-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">53 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/54-1000x750.jpg" alt="54-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">54 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/55-1000x750.jpg" alt="55-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">55 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/56-1000x750.jpg" alt="56-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">56 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/57.jpg" alt="57" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">57</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/58.jpg" alt="58" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">58</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/59675796_2349006765376064_7970154013570105344_n.jpg" alt="59675796_2349006765376064_7970154013570105344_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">59675796_2349006765376064_7970154013570105344_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/6-1000x461.jpg" alt="6-1000x461" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">6 1000x461</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/60.jpg" alt="60" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">60</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/61.jpg" alt="61" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">61</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/62.jpg" alt="62" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">62</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/63.jpg" alt="63" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">63</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/66746836_2397473413862732_3291151018502389760_n.jpg" alt="66746836_2397473413862732_3291151018502389760_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">66746836_2397473413862732_3291151018502389760_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/67079735_2397476590529081_1061825518841626624_n.jpg" alt="67079735_2397476590529081_1061825518841626624_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">67079735_2397476590529081_1061825518841626624_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/7-1000x750.jpg" alt="7-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">7 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/70400835_2476517355958337_3506929707301994496_n.jpg" alt="70400835_2476517355958337_3506929707301994496_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">70400835_2476517355958337_3506929707301994496_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/70538232_2468223776787695_6419484070241107968_o.jpg" alt="70538232_2468223776787695_6419484070241107968_o" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">70538232_2468223776787695_6419484070241107968_o</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/70692295_496713481149628_7706076510561501184_o.jpg" alt="70692295_496713481149628_7706076510561501184_o" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">70692295_496713481149628_7706076510561501184_o</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/70919751_2482882485321824_2001088317621272576_n.jpg" alt="70919751_2482882485321824_2001088317621272576_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">70919751_2482882485321824_2001088317621272576_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="charlas">
+            <img src="../images/galeria/72539533_2492657257677680_802522387378601984_o1-500x500.jpg" alt="72539533_2492657257677680_802522387378601984_o1-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">Charla sobre suicidio</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/75.jpg" alt="75" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">75</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/75497621_2518897355053670_8429809612680593408_n.jpg" alt="75497621_2518897355053670_8429809612680593408_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">75497621_2518897355053670_8429809612680593408_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/75610654_2512666602343412_9079490928791519232_n.jpg" alt="75610654_2512666602343412_9079490928791519232_n" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">75610654_2512666602343412_9079490928791519232_n</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/76-1000x750.jpg" alt="76-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">76 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/77-1000x750.jpg" alt="77-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">77 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/78.jpg" alt="78" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">78</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/8-1000x750.jpg" alt="8-1000x750" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">8 1000x750</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/9-1000x438.jpg" alt="9-1000x438" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">9 1000x438</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="actos">
+            <img src="../images/galeria/DSC00165-500x500.jpg" alt="DSC00165-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">Acto</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="actos">
+            <img src="../images/galeria/DSC00265-500x500.jpg" alt="DSC00265-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">Acto</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="actos">
+            <img src="../images/galeria/DSC00291-500x500.jpg" alt="DSC00291-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">Acto</figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="varios">
+            <img src="../images/galeria/tony-y-los-chicos-de-publica-en-dolores-500x500.jpg" alt="tony-y-los-chicos-de-publica-en-dolores-500x500" class="gallery-item__image" loading="lazy">
+            <figcaption class="gallery-item__caption">tony y los chicos de publica en dolores 500x500</figcaption>
         </figure>
     </div>
 </section>
+
+<!-- The Modal -->
+<div id="gallery-modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modal-image">
+</div>
+
 <link rel="stylesheet" href="/pages/galeria.css">
+<script src="/pages/galeria.js"></script>
