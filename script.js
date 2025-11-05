@@ -115,10 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const closeButton = document.createElement('span');
       closeButton.textContent = '✕'; /* Usar un carácter 'X' más universal */
       closeButton.style.position = 'absolute';
-      closeButton.style.top = '15px';
-      closeButton.style.right = '35px';
+      closeButton.style.top = '10px';
+      closeButton.style.right = '25px';
       closeButton.style.color = '#fff';
-      closeButton.style.fontSize = '40px';
+      closeButton.style.fontSize = '50px';
       closeButton.style.fontWeight = 'bold';
       closeButton.style.cursor = 'pointer';
 
