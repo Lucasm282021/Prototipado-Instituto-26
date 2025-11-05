@@ -123,11 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.style.cursor = 'pointer';
 
       const prevButton = document.createElement('button');
-      prevButton.innerHTML = `<img src="/images/botones/boron-retroceder-white.png" alt="Anterior">`;
+      prevButton.innerHTML = `<img src="images/botones/boron-retroceder-white.png" alt="Anterior">`;
       prevButton.className = 'modal-nav-button modal-prev-button';
 
       const nextButton = document.createElement('button');
-      nextButton.innerHTML = `<img src="/images/botones/boron-siguiente-white.png" alt="Siguiente">`;
+      nextButton.innerHTML = `<img src="images/botones/boron-siguiente-white.png" alt="Siguiente">`;
       nextButton.className = 'modal-nav-button modal-next-button';
 
       function updateImage() {
