@@ -5,17 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Definición de Rutas ---
   const routes = {
     "/": "/pages/inicio.html",
-    "/index.html": "/pages/inicio.html",
-    "/pages/inicio.html": "/pages/inicio.html",
-    "/pages/noticias.html": "/pages/noticias.html",
-    "/pages/institucional.html": "/pages/institucional.html",
-    "/pages/carreras.html": "/pages/carreras.html",
-    "/pages/ofertas-academicas.html": "/pages/ofertas-academicas.html",
-    "/pages/inscripcion.html": "/pages/inscripcion.html",
-    "/pages/clases-virtuales.html": "/pages/clases-virtuales.html",
-    "/pages/galeria.html": "/pages/galeria.html",
-    "/pages/alumno.html": "/pages/alumno.html",
-    "/pages/profesor.html": "/pages/profesor.html"
+    "/inicio": "/pages/inicio.html",
+    "/noticias": "/pages/noticias.html",
+    "/institucional": "/pages/institucional.html",
+    "/carreras": "/pages/carreras.html",
+    "/ofertas-academicas": "/pages/ofertas-academicas.html",
+    "/inscripcion": "/pages/inscripcion.html",
+    "/clases-virtuales": "/pages/clases-virtuales.html",
+    "/galeria": "/pages/galeria.html",
+    "/alumno": "/pages/alumno.html",
+    "/profesor": "/pages/profesor.html"
   };
 
   // --- Lógica de Carga de Página ---
@@ -55,20 +54,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Manejo de Navegación ---
-  function navigate(path, pushState = true) {
-    if (pushState && window.location.pathname !== path) {
-      history.pushState({ path }, '', path);
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    loadPage(path);
+  function navigate(path) {
+    window.location.hash = path;
   }
 
-  // Maneja la carga inicial y los botones de atrás/adelante
+  // Maneja la carga inicial y los cambios de hash
   function handleLocation() {
-    const path = window.location.pathname;
+    const path = window.location.hash.substring(1) || "/";
     loadPage(path);
   }
-  window.addEventListener('popstate', handleLocation);
+  window.addEventListener('hashchange', handleLocation);
+
 
   // Intercepta todos los clics para manejar la navegación interna
   document.addEventListener("click", (event) => {
@@ -81,11 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const url = new URL(link.href);
-    if (routes[url.pathname]) {
-      event.preventDefault();
-      navigate(url.pathname);
-    }
+    event.preventDefault();
+    const newPath = new URL(link.href).pathname.replace("/pages", "").replace(".html", "");
+    navigate(newPath);
   });
 
   // --- Lógica de la Galería ---
