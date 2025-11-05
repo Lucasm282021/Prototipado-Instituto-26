@@ -4,7 +4,7 @@
 **Análisis de sitio web I.S.F.D. y T. 26**  
 [https://isfd26-bue.infd.edu.ar/sitio/](https://isfd26-bue.infd.edu.ar/sitio/)  
 **Autor:** Lucas Montero  
-**Fecha:** 20 de Septiembre 2025  
+**Fecha:** 05 de Noviembre 2025  
 
 </div>
 
