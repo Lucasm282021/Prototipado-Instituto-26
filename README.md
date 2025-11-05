@@ -86,10 +86,13 @@
 ---
 
 ### 7. Propuesta de mejora  
-- Rediseñar arquitectura visual con bloques funcionales y jerarquía clara  
-- Validar semánticamente formularios y retroalimentación visual  
-- Optimizar tiempos de carga y aplicar estándares WCAG  
-- Documentar componentes con leyendas modulares y nomenclatura BEM  
+- Rediseñar arquitectura visual  nav-bar clara con bloques funcionales y jerarquía clara  ✔️
+- Diseño responsive con sid-var lateral adptativa ✔️
+- Implementacion de area de alumno / profesor con boton y modal de login ✔️
+- Implementacion de area de noticias ✔️
+- Implementacion de una galeria funcional ordenada y con filtros ✔️   
+- Validar semánticamente formularios y retroalimentación visual  ✔️ 
+- Documentar componentes con leyendas modulares y nomenclatura BEM  ✔️ 
 
 ---
 
