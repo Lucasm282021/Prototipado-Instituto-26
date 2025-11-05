@@ -1,8 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.getElementById("main-content");
+  let galleryWindowClickListener = null; // Variable to hold the gallery modal click listener
 
   // 🚀 Función reutilizable para cargar páginas dinámicamente
   async function loadPage(url) {
+    // Limpiar el listener de la galería anterior para evitar duplicados
+    if (galleryWindowClickListener) {
+      window.removeEventListener('click', galleryWindowClickListener);
+      galleryWindowClickListener = null;
+    }
+
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -12,6 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
         main.firstElementChild.classList.add("fade-in");
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // Si la página cargada es la galería, inicializamos su lógica
+      if (url.includes("galeria.html")) {
+        initGalleryPage();
+      }
 
       // ✨ Mejora de accesibilidad: Mover el foco al nuevo contenido
       // Esto ayuda a los usuarios de lectores de pantalla a saber que la página cambió.
@@ -386,6 +398,66 @@ document.addEventListener("DOMContentLoaded", () => {
       if (main) {
         loadPage('/pages/inicio.html');
       }
+    });
+  }
+
+  // === Lógica para la página de Galería ===
+  function initGalleryPage() {
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-image');
+    const span = document.getElementsByClassName('close')[0];
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    // Salir si los elementos no existen para no causar errores en otras páginas
+    if (!modal || !galleryGrid || !span) {
+      return;
+    }
+
+    // Delegación de eventos para los clics en las imágenes de la galería (más robusto)
+    galleryGrid.addEventListener('click', event => {
+        const clickedItem = event.target.closest('.gallery-item');
+        if (clickedItem) {
+            const image = clickedItem.querySelector('.gallery-item__image');
+            if (image) {
+                modal.style.display = 'block';
+                modalImg.src = image.src;
+            }
+        }
+    });
+
+    // Clic en el botón de cerrar (X)
+    span.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Clic fuera de la imagen para cerrar el modal (versión mejorada)
+    galleryWindowClickListener = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+    window.addEventListener('click', galleryWindowClickListener);
+
+    // Lógica para los botones de filtro
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+
+            // Botón activo
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filtrar imágenes
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
     });
   }
 });

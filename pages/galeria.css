@@ -87,7 +87,6 @@
 .modal-content {
     margin: auto;
     display: block;
-    width: 90%;
     max-width: 90vw;
     max-height: 90vh;
     position: absolute;
